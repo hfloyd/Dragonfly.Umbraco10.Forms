@@ -1,0 +1,66 @@
+//This is an example of how you might create a custom Model for a specific form.
+
+//NOTE: This code is from the v7 version and might need to be adjusted for v10 compatibility
+
+
+    public class FormDataMyForm
+    {
+        public FormWithRecords FormWithRecords { get; internal set; }
+        public IEnumerable<FormDataMyFormRecord> Records { get; internal set; }
+
+        public FormDataMyForm(string FormGuid)
+        {
+            FormWithRecords = new FormWithRecords(FormGuid);
+
+            var formRecords = new List<FormDataMyFormRecord>();
+            foreach (var record in FormWithRecords.RecordsAll)
+            {
+                var intValue = 0;
+                var intTest = false;
+
+                var formGuid = new Guid(FormGuid);
+                var typedRecord = new FormDataMyFormRecord();
+
+                //Standard Record Info
+                typedRecord.RecordId = record.Id;
+                typedRecord.State = record.State;
+                typedRecord.RecordUniqueId = record.UniqueId;
+                typedRecord.Created = record.Created;
+                typedRecord.IP = record.IP;
+                typedRecord.MemberKey = record.MemberKey;
+                typedRecord.UmbracoPageId = record.UmbracoPageId;
+                typedRecord.Updated = record.Updated;
+
+                //Custom Field Values
+                typedRecord.StringAlias = record.GetRecordField("StringAlias").ValuesAsString();
+
+                intValue = 0;
+                intTest = int.TryParse(record.GetRecordField("IntAlias").ValuesAsString(), out intValue);
+                typedRecord.IntAlias = intValue;
+
+                typedRecord.DateAlias = DateTime.Parse(record.GetRecordField("DateAlias").ValuesAsString());
+
+                formRecords.Add(typedRecord);
+            }
+        }
+
+    }
+
+    public class FormDataMyFormRecord
+    {
+        public string IP { get; internal set; }
+        public Guid RecordUniqueId { get; internal set; }
+        public int RecordId { get; internal set; }
+        public FormState? State { get; internal set; }
+        public object MemberKey { get; internal set; }
+        public int UmbracoPageId { get; internal set; }
+        public DateTime Created { get; internal set; }
+        public DateTime Updated { get; internal set; }
+
+        public string StringAlias { get; internal set; }
+        public int IntAlias { get; internal set; }
+        public DateTime DateAlias { get; internal set; }
+
+
+        public FormDataMyFormRecord() { }
+    }
