@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <DragonflyUmbracoFormsContentFilesPath>$(MSBuildThisFileDirectory)..\content\**\*.*</DragonflyUmbracoFormsContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyDragonflyUmbracoFormsAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <DragonflyUmbracoFormsContentFiles Include="$(DragonflyUmbracoFormsContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying DragonflyUmbracoForms files: $(DragonflyUmbracoFormsContentFilesPath) - #@(DragonflyUmbracoFormsContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(DragonflyUmbracoFormsContentFiles)"
+            DestinationFiles="@(DragonflyUmbracoFormsContentFiles->'$(MSBuildProjectDirectory)\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearDragonflyUmbracoFormsAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <DragonflyUmbracoFormsDir Include="$(MSBuildProjectDirectory)\App_Plugins\Dragonfly.UmbracoForms\" />
+        </ItemGroup>
+        <Message Text="Clear old Dragonfly Umbraco Forms files"  Importance="high" />
+        <RemoveDir Directories="@(DragonflyUmbracoFormsDir)"  />
+    </Target>
+
+</Project>
