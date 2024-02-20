@@ -26,7 +26,7 @@ namespace Dragonfly.UmbracoForms.Composers
             //    .Add<LogWorkflow>();
 
             builder.WithCollectionBuilder<FieldCollectionBuilder>()
-                .Add<LikertGrid>()
+                //.Add<LikertGrid>()
                 .Add<LikertItem>()
                 .Add<LongAnswerNoLabel>()
                 .Add<NetPromoter>(); 

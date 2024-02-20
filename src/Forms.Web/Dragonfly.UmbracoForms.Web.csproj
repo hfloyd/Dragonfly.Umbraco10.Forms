@@ -41,7 +41,7 @@
 	<PropertyGroup>
 		<RootNamespace>Dragonfly.UmbracoForms</RootNamespace>
 		<AssemblyName>Dragonfly.UmbracoForms.Web</AssemblyName>
-		<Version>1.0.1</Version>
+		<Version>1.1.0</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
 
@@ -63,9 +63,9 @@
 		<PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1,13.0.0]" />
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
 		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Forms.Core" Version="[10.0.1,13.0.0]" PrivateAssets="All"/>
-		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[10.0.1,13.0.0]" PrivateAssets="All"/>
-		<PackageReference Include="Umbraco.Forms.Web" Version="[10.0.1,13.0.0]" PrivateAssets="All"/>
+		<PackageReference Include="Umbraco.Forms.Core" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Web" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
 	</ItemGroup>
 
 	<!--Include App_Plugins, Views & targets file-->
@@ -80,21 +80,31 @@
 			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
 			<Pack>True</Pack>
 		</Content>
+		<Content Include="wwwroot\Css\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+			<Pack>True</Pack>
+		</Content>
 		<None Include="build\**\*.*">
 			<Pack>True</Pack>
 			<PackagePath>buildTransitive</PackagePath>
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Remove="App_Plugins\Dragonfly.UmbracoForms\Backoffice\Common\FieldTypes\MediaUpload.html" />
-	  <Content Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.MediaUpload.cshtml" />
+		<Content Remove="App_Plugins\Dragonfly.UmbracoForms\Backoffice\Common\FieldTypes\MediaUpload.html" />
+		<Content Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.LongAnswerNoLabel.cshtml" />
+		<Content Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.MediaUpload.cshtml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Remove="App_Plugins\Dragonfly.UmbracoForms\Backoffice\Common\FieldTypes\MediaUpload.html" />
-	  <None Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.MediaUpload.cshtml" />
+		<None Remove="App_Plugins\Dragonfly.UmbracoForms\Backoffice\Common\FieldTypes\MediaUpload.html" />
+		<None Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.LongAnswerNoLabel.cshtml" />
+		<None Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.MediaUpload.cshtml" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Forms.Core\Dragonfly.UmbracoForms.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\Css\" />
 	</ItemGroup>
 
 	<Import Project="..\Custom.targets" />

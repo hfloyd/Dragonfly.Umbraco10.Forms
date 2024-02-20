@@ -13,7 +13,6 @@
             SourceFiles="@(DragonflyUmbracoFormsContentFiles)"
             DestinationFiles="@(DragonflyUmbracoFormsContentFiles->'$(MSBuildProjectDirectory)\%(RecursiveDir)%(Filename)%(Extension)')"
             SkipUnchangedFiles="true" />
-
     </Target>
 
     <Target Name="ClearDragonflyUmbracoFormsAssets" BeforeTargets="Clean">

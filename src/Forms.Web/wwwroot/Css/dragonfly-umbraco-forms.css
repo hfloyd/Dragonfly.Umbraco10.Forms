@@ -1,0 +1,244 @@
+﻿
+.umbraco-forms-field div label {
+    display: inline;
+}
+
+.umbraco-forms-hidden {
+    display: none;
+}
+
+
+/* For Likert Items/NPS use button groups - this is Bootstrap */
+[data-toggle=buttons] > .btn input[type=checkbox], [data-toggle=buttons] > .btn input[type=radio], [data-toggle=buttons] > .btn-group > .btn input[type=checkbox], [data-toggle=buttons] > .btn-group > .btn input[type=radio] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+
+.umbraco-forms-form .checkboxlist input, .umbraco-forms-form .radiobuttonlist input, .umbraco-forms-form .checkbox input {
+    width: auto !important;
+    height: auto !important;
+    border: none !important;
+    display: inline !important;
+}
+
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+
+input[type=checkbox], input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle
+}
+
+    .btn-group-vertical > .btn, .btn-group > .btn {
+        position: relative;
+        float: left
+    }
+
+        .btn-group-vertical > .btn.active, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:hover, .btn-group > .btn.active, .btn-group > .btn:active, .btn-group > .btn:focus, .btn-group > .btn:hover {
+            z-index: 2
+        }
+
+    .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+        margin-left: -1px
+    }
+
+.likertitem .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+.btn-toolbar {
+    margin-left: -5px
+}
+
+    .btn-toolbar .btn-group, .btn-toolbar .input-group {
+        float: left
+    }
+
+    .btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+        margin-left: 5px
+    }
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0
+}
+
+.btn-group > .btn:first-child {
+    margin-left: 0
+}
+
+    .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0
+    }
+
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.btn-group > .btn-group {
+    float: left
+}
+
+    .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+        border-radius: 0
+    }
+
+    .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0
+    }
+
+    .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0
+    }
+
+.btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
+    outline: 0
+}
+
+.btn-group > .btn + .dropdown-toggle {
+    padding-right: 8px;
+    padding-left: 8px
+}
+
+.btn-group > .btn-lg + .dropdown-toggle {
+    padding-right: 12px;
+    padding-left: 12px
+}
+
+.btn-group.open .dropdown-toggle {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
+}
+
+    .btn-group.open .dropdown-toggle.btn-link {
+        -webkit-box-shadow: none;
+        box-shadow: none
+    }
+
+
+.umbraco-forms-form .likertitem .btn-primary, .btn.primary {
+    background: #000;
+    border-color: #000;
+    color: #FFF;
+}
+
+
+    .umbraco-forms-form .likertitem .btn-primary:hover, .btn.primary:hover {
+        background: transparent;
+        border-color: #000;
+        color: #000;
+    }
+
+
+    .umbraco-forms-form .likertitem .btn-primary.active {
+        background: #CCC;
+        border-color: #CCC;
+        color: #000000;
+    }
+
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700
+}
+
+
+/* Likert Item */
+
+.umbraco-forms-form .likertitem .btn-primary.active {
+    background: #B2E522;
+    border-color: #B2E522;
+    color: #000000;
+}
+
+.umbraco-forms-form .likertitem .btn-primary.focus {
+    background: #A60041;
+    border-color: #B2E522;
+    color: #FFFFFF;
+}
+
+.umbraco-forms-form .likertratingitem {
+    padding: .25em 0;
+}
+
+    .umbraco-forms-form .likertratingitem label {
+        font-weight: 200;
+    }
+
+
+/* NPS */
+
+.umbraco-forms-form .netpromoterscorenps label {
+    padding-top: .5em;
+    /*padding-bottom: .25em;*/
+}
+
+.umbraco-forms-form .netpromoterinput {
+    padding-top: .5em;
+    /*padding-bottom: .25em;*/
+}
+
+.umbraco-forms-form .ratinghelp {
+    font-size: 16px;
+    font-weight: 200;
+    color: #666666;
+    height: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .umbraco-forms-form .ratinghelp {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .umbraco-forms-form .badge {
+        font-size: 16px;
+        font-weight: 400;
+        background-color: #666666;
+    }
+}
+
+
+
+/* Long answer No label */
+.longanswernolabel label {
+    display: none;
+}
