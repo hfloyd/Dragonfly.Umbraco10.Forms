@@ -14,7 +14,7 @@
 		<PackageId>Dragonfly.Umbraco10.Forms.Core</PackageId>
 		<Title>Dragonfly Umbraco 10 Forms</Title>
 		<Product>Dragonfly Umbraco 10 Forms</Product>
-		<Description>A collection of custom Umbraco Forms FieldTypes and Helpers (Umbraco 10)</Description>
+		<Description>A collection of custom Umbraco Forms FieldTypes and Helpers (Umbraco 10+)</Description>
 
 		<PackageProjectUrl>https://github.com/hfloyd/Dragonfly.Umbraco10.Forms</PackageProjectUrl>
 		<RepositoryType>GIT</RepositoryType>
@@ -41,7 +41,7 @@
 	<PropertyGroup>
 		<RootNamespace>Dragonfly.UmbracoForms</RootNamespace>
 		<AssemblyName>Dragonfly.UmbracoForms.Core</AssemblyName>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
 
@@ -61,12 +61,12 @@
 
 	<!-- Packages-->
 	<ItemGroup>
-		<PackageReference Include="Dragonfly.Net5" Version="1.2.0" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="10.2.0" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.2.0" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.2.0" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Forms.Core" Version="10.1.2" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="10.1.2" />
+		<PackageReference Include="Dragonfly.Net5" Version="1.6.0" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1,13.0.0]" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
 	</ItemGroup>
 
 

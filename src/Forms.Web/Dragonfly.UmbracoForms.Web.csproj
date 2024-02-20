@@ -41,7 +41,7 @@
 	<PropertyGroup>
 		<RootNamespace>Dragonfly.UmbracoForms</RootNamespace>
 		<AssemblyName>Dragonfly.UmbracoForms.Web</AssemblyName>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
 
@@ -60,12 +60,12 @@
 
 	<!-- Packages-->
 	<ItemGroup>
-		<PackageReference Include="Umbraco.Cms.Core" Version="10.2.0" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.2.0" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.2.0" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Forms.Core" Version="10.1.2" />
-		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="10.1.2" />
-		<PackageReference Include="Umbraco.Forms.Web" Version="10.1.2" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1,13.0.0]" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="[10.0.1,13.0.0]" PrivateAssets="All"/>
+		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[10.0.1,13.0.0]" PrivateAssets="All"/>
+		<PackageReference Include="Umbraco.Forms.Web" Version="[10.0.1,13.0.0]" PrivateAssets="All"/>
 	</ItemGroup>
 
 	<!--Include App_Plugins, Views & targets file-->
