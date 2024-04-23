@@ -21,7 +21,7 @@
 		<RepositoryUrl>https://github.com/hfloyd/Dragonfly.Umbraco10.Forms</RepositoryUrl>
 
 		<PackageTags>Umbraco 10;Umbraco Forms</PackageTags>
-		<PackageReleaseNotes>First release</PackageReleaseNotes>
+
 	</PropertyGroup>
 
 	<!-- Author Info + Legal-->
@@ -41,10 +41,10 @@
 	<PropertyGroup>
 		<RootNamespace>Dragonfly.UmbracoForms</RootNamespace>
 		<AssemblyName>Dragonfly.UmbracoForms.Core</AssemblyName>
-		<Version>1.1.0</Version>
+		<Version>2.0.0</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
-
+		<PackageReleaseNotes>Updated to use 'Dragonfly.Net6'</PackageReleaseNotes>
 	</PropertyGroup>
 
 
@@ -61,7 +61,7 @@
 
 	<!-- Packages-->
 	<ItemGroup>
-		<PackageReference Include="Dragonfly.Net5" Version="1.6.0" />
+		<PackageReference Include="Dragonfly.Net6" Version="1.0.0" />
 		<PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1,13.0.0]" />
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
 		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
