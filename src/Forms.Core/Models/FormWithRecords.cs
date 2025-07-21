@@ -9,7 +9,27 @@
     using Umbraco.Forms.Core.Models;
     using Umbraco.Forms.Core.Persistence.Dtos;
     using Umbraco.Forms.Core.Services;
+    using Umbraco.Cms.Core.Models;
 
+//#if NET6_0
+//    using System.Linq;
+//    using Umbraco.Forms.Core.Data.Storage;
+//    using Umbraco.Forms.Core.Enums;
+//    using Umbraco.Forms.Core.Interfaces;
+//    using Umbraco.Forms.Core.Models;
+//    using Umbraco.Forms.Core.Persistence.Dtos;
+//    using Umbraco.Forms.Core.Services;
+//#elif NET8_0
+//    using System.Linq;
+//    using Umbraco.Forms.Core.Data.Storage;
+//    using Umbraco.Forms.Core.Enums;
+//    using Umbraco.Forms.Core.Interfaces;
+//    using Umbraco.Forms.Core.Models;
+//    using Umbraco.Forms.Core.Persistence.Dtos;
+//    using Umbraco.Forms.Core.Services;
+//#else
+//	// Code common to all target frameworks
+//#endif
     public class FormWithRecords
     {
 
@@ -19,7 +39,7 @@
 
         private Form? _form;
         private List<string> _formInfo = new List<string>();
-        private List<IRecord> _recordsAll = new List<IRecord>();
+        private List<Record> _recordsAll = new List<Record>();
         private List<string> _errors = new List<string>();
         private bool _isValid = false;
         private long _qtyAllRecords = 0;
@@ -37,12 +57,12 @@
 
         public long QtyApprovedRecords => _qtyApprovedRecords;
 
-        public IEnumerable<IRecord> RecordsAll()
+        public IEnumerable<Record> RecordsAll()
         {
             return _recordsAll;
         }
 
-        public IEnumerable<IRecord> RecordsApproved()
+        public IEnumerable<Record> RecordsApproved()
         {
             if (_recordsAll.Any())
             {
@@ -50,7 +70,7 @@
             }
             else
             {
-                return new List<IRecord>();
+                return new List<Record>();
             }
         }
 
@@ -138,13 +158,41 @@
             //}
 
 
+#if NET6_0
+            var alliRecs = _FormRecordReaderService.GetRecordsFromForm(FormModel.Id, 1, int.MaxValue);
+            var allRecs = new List<Record>();
+            if (alliRecs.Items != null)
+            {
+	            foreach (var iRec in alliRecs.Items)
+	            {
+                    // Convert each RecordDto to Record
+                    var record = new Record
+                    {
+                        Id = iRec.Id,
+                        //FormId = iRec.FormId,
+                        State = iRec.State,
+                        Created = iRec.Created,
+                        Updated = iRec.Updated,
+                        RecordFields = iRec.RecordFields.ToDictionary(k => k.Key, v => v.Value)
+                    };
+                    allRecs.Add(record);
+	            }
+			}
 
-            var allRecs = _FormRecordReaderService.GetRecordsFromForm(FormModel.Id, 1, int.MaxValue);
+            if (allRecs.Any())
+            {
+	            _recordsAll = allRecs.ToList();
+	            _qtyApprovedRecords = _recordsAll.Count(x => x.State == FormState.Approved);
+            }
+#else
+	        var allRecs = _FormRecordReaderService.GetRecordsFromForm(FormModel.Id, 1, int.MaxValue);
             if (allRecs.Items != null)
             {
                 _recordsAll = allRecs.Items.ToList();
                 _qtyApprovedRecords = _recordsAll.Count(x => x.State == FormState.Approved);
             }
+#endif
+			
 
         }
 

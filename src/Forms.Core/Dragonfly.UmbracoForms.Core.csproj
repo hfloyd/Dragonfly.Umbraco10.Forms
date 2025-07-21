@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+		<!--<TargetFramework>net6.0</TargetFramework>-->
+		<!--<TargetFramework>net8.0</TargetFramework>-->
 		<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
 		<ContentTargetFolders>content</ContentTargetFolders>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -12,15 +14,15 @@
 	<!-- Package Description-->
 	<PropertyGroup>
 		<PackageId>Dragonfly.Umbraco10.Forms.Core</PackageId>
-		<Title>Dragonfly Umbraco 10 Forms</Title>
-		<Product>Dragonfly Umbraco 10 Forms</Product>
+		<Title>Dragonfly Umbraco 10+ Forms</Title>
+		<Product>Dragonfly Umbraco Forms</Product>
 		<Description>A collection of custom Umbraco Forms FieldTypes and Helpers (Umbraco 10+)</Description>
 
 		<PackageProjectUrl>https://github.com/hfloyd/Dragonfly.Umbraco10.Forms</PackageProjectUrl>
 		<RepositoryType>GIT</RepositoryType>
 		<RepositoryUrl>https://github.com/hfloyd/Dragonfly.Umbraco10.Forms</RepositoryUrl>
 
-		<PackageTags>Umbraco 10;Umbraco Forms</PackageTags>
+		<PackageTags>Umbraco Forms</PackageTags>
 
 	</PropertyGroup>
 
@@ -41,10 +43,11 @@
 	<PropertyGroup>
 		<RootNamespace>Dragonfly.UmbracoForms</RootNamespace>
 		<AssemblyName>Dragonfly.UmbracoForms.Core</AssemblyName>
-		<Version>2.0.0</Version>
+		<Version>3.0.0</Version>
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<FileVersion>$(Version)</FileVersion>
-		<PackageReleaseNotes>Updated to use 'Dragonfly.Net6'</PackageReleaseNotes>
+		<PackageReleaseNotes>Now supports Umbraco 10 and 13</PackageReleaseNotes>
+		<PackageOutputPath>$(SolutionDir)..\..\LocalNuGetPackages\</PackageOutputPath>
 	</PropertyGroup>
 
 
@@ -61,15 +64,24 @@
 
 	<!-- Packages-->
 	<ItemGroup>
-		<PackageReference Include="Dragonfly.Net6" Version="1.0.0" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1,13.0.0]" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Forms.Core" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
-		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[10.0.1,13.0.0]" PrivateAssets="All" />
+		<PackageReference Include="Dragonfly.Net6" Version="1.8.0" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1,11.0.0)" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1,11.0.0)" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1,11.0.0)" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="[10.0.1,11.0.0)" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[10.0.1,11.0.0)" PrivateAssets="All" />
+	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<PackageReference Include="Umbraco.Cms.Core" Version="[13.0.1,14.0.0)" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0.1,14.0.0)" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[13.0.1,14.0.0)" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="[13.0.1,14.0.0)" PrivateAssets="All" />
+		<PackageReference Include="Umbraco.Forms.Core.Providers" Version="[13.0.1,14.0.0)" PrivateAssets="All" />
+	</ItemGroup>
 
 	<!--Include App_Plugins & targets file: NONE-->
 

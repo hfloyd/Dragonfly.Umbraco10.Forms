@@ -68,7 +68,11 @@
 
             // Optional      
             Category = "Custom Types";
-            HideField = false;
+
+#if NET6_0
+	        HideField = false;
+#endif
+            
             HideLabel = false;
             SortOrder = 10;
            // SupportsPrevalues = false;

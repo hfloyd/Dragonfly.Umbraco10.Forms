@@ -17,7 +17,9 @@
 
             // Optional         
             this.Category = "Custom Types";
-            this.HideField = false;
+#if NET6_0
+            HideField = false;
+#endif
             this.HideLabel = true;
             this.SortOrder = 10;
             //  this.SupportsPrevalues = false;

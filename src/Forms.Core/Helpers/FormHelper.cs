@@ -4,10 +4,21 @@
     using System.Linq;
     using Umbraco.Forms.Core.Interfaces;
     using Umbraco.Forms.Core.Persistence.Dtos;
+    using Umbraco.Forms.Core.Models;
+    using System.Linq;
+    using Umbraco.Forms.Core.Data.Storage;
+    using Umbraco.Forms.Core.Enums;
+    using Umbraco.Forms.Core.Interfaces;
+    using Umbraco.Forms.Core.Models;
+    using Umbraco.Forms.Core.Persistence.Dtos;
+    using Umbraco.Forms.Core.Services;
 
-    public static class FormHelper
+
+
+
+	public static class FormHelper
     {
-        public static string GetStringFieldValue(IRecord Record, string FieldAlias)
+        public static string GetStringFieldValue(Record Record, string FieldAlias)
         {
             string val = "";
             var isValid = TryGetStringFieldValue(Record, FieldAlias, out val);
@@ -15,7 +26,7 @@
             return val;
         }
 
-        public static bool TryGetStringFieldValue(IRecord Record, string FieldAlias, out string StringValue)
+        public static bool TryGetStringFieldValue(Record Record, string FieldAlias, out string StringValue)
         {
             try
             {
@@ -42,7 +53,7 @@
             }
         }
 
-        public static int GetIntFieldValue(IRecord Record, string FieldAlias)
+        public static int GetIntFieldValue(Record Record, string FieldAlias)
         {
             int val = 0;
             var isValid = TryGetIntFieldValue(Record, FieldAlias, out val);
@@ -50,7 +61,7 @@
             return val;
         }
 
-        public static bool TryGetIntFieldValue(IRecord Record, string FieldAlias, out int IntegerValue)
+        public static bool TryGetIntFieldValue(Record Record, string FieldAlias, out int IntegerValue)
         {
             try
             {

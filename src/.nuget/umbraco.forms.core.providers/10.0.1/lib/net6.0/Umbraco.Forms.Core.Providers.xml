@@ -1,0 +1,1294 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Umbraco.Forms.Core.Providers</name>
+    </assembly>
+    <members>
+        <member name="T:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql">
+            <summary>
+            Provides a form datasource type based on a MSSQL Server database table.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Services.IFieldTypeStorage,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.Connection">
+            <summary>
+            Gets or sets an OleDB Compatible connection string.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.Table">
+            <summary>
+            Gets or sets a table name.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.GetRecords(Umbraco.Forms.Core.Models.Form,System.Int32,System.Int32,System.Object,Umbraco.Forms.Core.Enums.RecordSorting)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.InsertRecord(Umbraco.Forms.Core.Persistence.Dtos.Record)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.GetMappedFields">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.GetAvailableFields">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.GetPreValues(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.InsertValue(Umbraco.Forms.Core.Models.PreValue,Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.UpdateValue(Umbraco.Forms.Core.Models.PreValue,Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.DeleteValue(Umbraco.Forms.Core.Models.PreValue,Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.SortValues(System.Guid,System.Collections.Generic.List{Umbraco.Forms.Core.Models.PreValue},Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.DatasourceTypes.MsSql.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Export.ExportToExcel">
+            <summary>
+            Provides a an export type for exporting to an Excel spreadsheet.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.ExportToExcel.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment,Microsoft.AspNetCore.Http.IHttpContextAccessor,Umbraco.Forms.Core.Searchers.IFormRecordSearcher)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.Export.ExportToExcel"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.ExportToExcel.ExportToFile(Umbraco.Forms.Core.Models.RecordExportFilter,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.ExportToExcel.ExportRecords(Umbraco.Forms.Core.Models.RecordExportFilter)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFiles">
+            <summary>
+            Provides a an export type for exporting to a zip archive.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFiles.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment,Umbraco.Cms.Core.IO.MediaFileManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFiles"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFiles.PopulateZipArchive(Umbraco.Cms.Core.IO.IFileSystem,Umbraco.Forms.Core.Models.RecordExportFilter,System.String,System.IO.Compression.ZipArchive)">
+            <inheritdoc />
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase">
+            <summary>
+            Base class providing a an export type for exporting to a zip archive.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment,Umbraco.Cms.Core.IO.MediaFileManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase.ExportRecords(Umbraco.Forms.Core.Models.RecordExportFilter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase.ExportToFile(Umbraco.Forms.Core.Models.RecordExportFilter,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase.PopulateZipArchive(Umbraco.Cms.Core.IO.IFileSystem,Umbraco.Forms.Core.Models.RecordExportFilter,System.String,System.IO.Compression.ZipArchive)">
+            <summary>
+            Populates the contents of the zip archive.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesBase.AddZipEntryFromFile(Umbraco.Cms.Core.IO.IFileSystem,System.IO.Compression.ZipArchive,System.String,System.String)">
+            <summary>
+            Adds a zip entry from the provided file.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesByEntry">
+            <summary>
+            Provides a an export type for exporting to a zip archive.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesByEntry.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment,Umbraco.Cms.Core.IO.MediaFileManager,Umbraco.Forms.Core.Searchers.IFormRecordSearcher)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesByEntry"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.Export.SaveAllUploadedFilesByEntry.PopulateZipArchive(Umbraco.Cms.Core.IO.IFileSystem,Umbraco.Forms.Core.Models.RecordExportFilter,System.String,System.IO.Compression.ZipArchive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Extensions.UmbracoBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:Umbraco.Cms.Core.DependencyInjection.IUmbracoBuilder"/> for the common Umbraco functionality
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.CheckBox">
+            <summary>
+            Provides a checkbox field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.CheckBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.CheckBox"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.CheckBox.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.CheckBox.ConvertToRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList">
+            <summary>
+            Provides a checkbox list field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList.ShowLabel">
+            <summary>
+            Gets or sets a value indicating whether the field label should be shown.
+            PreValues are a single element, a boolean indicating whether the default for the the checkbox is "checked".
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList.SupportsPreValues">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.CheckBoxList.ConvertToRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent">
+            <summary>
+            Provides a data use consent field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent.AcceptCopy">
+            <summary>
+            Gets or sets the text used to confirm consent.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent.ValidateField(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent.ConvertFromRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Used when we fetch the record or edit the form submission
+            Will need to map the true/false bool back to accepted or declined so that the correct radio button is selected
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DataConsent.ConvertToRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            When a form is submitted - we converted the hardcoded radiobutton input value of 'accepted' to a true bool to be stored in the DB
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker">
+            <summary>
+            Provides a date picker field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.#ctor(Umbraco.Forms.Web.Services.IFormThemeResolver)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.SupportsRegex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.Placeholder">
+            <summary>
+            Gets or sets the form field's placeholder value.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.RequiredPartialViews(System.Func{System.String},Umbraco.Forms.Core.Models.Field)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.ProcessValue(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Processes the posted values.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.ConvertToRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.ValidateField(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DatePicker.ValidateDate(System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Validates a date string and, if invalid, adds errors to a collection of error messages.
+            </summary>
+            <param name="value">The date value.</param>
+            <param name="errorMessages">The error messages.</param>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList">
+            <summary>
+            Provides a drop down list field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.AllowMultipleSelections">
+            <summary>
+            Gets or sets a value indicating whether multiple values can be selected.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.ShowLabel">
+            <summary>
+            Gets or sets a value indicating whether the field label should be shown.
+            PreValues are a single element, a boolean indicating whether the default for the the checkbox is "checked".
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.AutocompleteAttribute">
+            <summary>
+            Gets or sets the form field's autocomplete attribute value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.SupportsPreValues">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.DropDownList.EditView">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload">
+            <summary>
+            Provides a file upload field type for a form.
+            </summary>
+        </member>
+        <member name="F:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.EncryptedFilePathAndFileNameSeparator">
+            <summary>
+            Exposes a separater used when rendering an encrypted temporary file path and an unencrypted file name
+            for display when a file is already selected on a multi-page form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.#ctor(Microsoft.Extensions.Options.IOptions{Umbraco.Forms.Core.Configuration.SecuritySettings},Microsoft.Extensions.Hosting.IHostEnvironment,Umbraco.Cms.Core.IO.MediaFileManager,Microsoft.AspNetCore.DataProtection.IDataProtectionProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.RenderView">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.SupportsUploadTypes">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.ValidateField(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.ProcessSubmittedValue(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.ConvertToRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Core.Providers.FieldTypes.FileUpload.ConvertFromRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object})" -->
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.HiddenField">
+            <summary>
+            Provides a hidden field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.HiddenField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.HiddenField"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.HiddenField.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.HiddenField.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.Password">
+            <summary>
+            Provides a password field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Password.#ctor(Microsoft.Extensions.Options.IOptions{Umbraco.Forms.Core.Configuration.SecuritySettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.Password"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Password.Placeholder">
+            <summary>
+            Gets or sets the form field placeholder value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Password.SupportsRegex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Password.StoresData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList">
+            <summary>
+            Provides a radio button list field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList.ShowLabel">
+            <summary>
+            Gets or sets a value indicating whether the field label should be shown.
+            PreValues are a single element, a boolean indicating whether the default for the the checkbox is "checked".
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.RadioButtonList.SupportsPreValues">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2">
+            <summary>
+            Provides Recaptcha2 field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Umbraco.Forms.Core.Configuration.Recaptcha2Settings},Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2.Theme">
+            <summary>
+            Gets or sets the field's theme.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2.Size">
+            <summary>
+            Gets or sets the field size.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2.ErrorMessage">
+            <summary>
+            Gets or sets the error message to display when the user does not pass the Recaptcha check.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2.StoresData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha2.ValidateField(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3">
+            <summary>
+            Provides Recaptcha3 field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Umbraco.Forms.Core.Configuration.Recaptcha3Settings},Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.ScoreThreshold">
+            <summary>
+            Gets or sets the numeric threshold for the hidden score approval of 0.0 being a bot to 1.0 being all OK.
+            PreValues are an array (min, max, step and default).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.ErrorMessage">
+            <summary>
+            Gets or sets the error message to display when the user does not pass the reCAPTCHA check.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.SaveScore">
+            <summary>
+            Gets or sets a value indicating whether to save the reCAPTCHA score.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.StoresData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.ValidateField(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.ConvertToRecord(Umbraco.Forms.Core.Models.Field,System.Collections.Generic.IEnumerable{System.Object},Microsoft.AspNetCore.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Recaptcha3.IsValidResponse(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.Field,System.String,System.Double@)">
+            <summary>
+            Determines whether the specified response is valid.
+            </summary>
+            <param name="form">The form.</param>
+            <param name="field">The field.</param>
+            <param name="response">The reCAPTCHA response.</param>
+            <param name="score">The score from the reCAPTCHA response provided as an out parameter.</param>
+            <returns>
+              <c>true</c> if the response is valid; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.Text">
+            <summary>
+            Provides a an text field type for a form (containing a caption and body text).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Text.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.Text"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Text.Caption">
+            <summary>
+            Gets or sets the form field's caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Text.BodyText">
+            <summary>
+            Gets or sets the form field's body text.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Text.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Text.StoresData">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Text.SupportsMandatory">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.Textarea">
+            <summary>
+            Provides a text area field type for a form.
+            </summary>
+        </member>
+        <member name="F:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.DefaultNumberOfRows">
+            <summary>
+            Defines the default number of rows displayed for the text area form field entry, if not overridden
+            by the <see cref="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.NumberOfRows"/> setting.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.Textarea"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.Placeholder">
+            <summary>
+            Gets or sets the form field's placeholder value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.ShowLabel">
+            <summary>
+            Gets or sets a value indicating whether the field label should be shown.
+            PreValues are a single element, a boolean indicating whether the default for the the checkbox is "checked".
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.AutocompleteAttribute">
+            <summary>
+            Gets or sets the form field's autocomplete attribute value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.NumberOfRows">
+            <summary>
+            Gets or sets the number of rows available for entry in the text field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.MaximumLength">
+            <summary>
+            Gets or sets the maximum length of the accepted entry in the field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textarea.SupportsRegex">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.FieldTypes.Textfield">
+            <summary>
+            Provides a text field type for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.FieldTypes.Textfield"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.DefaultValue">
+            <summary>
+            Gets or sets a default value for the form field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.Placeholder">
+            <summary>
+            Gets or sets the form field's placeholder value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.ShowLabel">
+            <summary>
+            Gets or sets a value indicating whether the field label should be shown.
+            PreValues are a single element, a boolean indicating whether the default for the the checkbox is "checked".
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.MaximumLength">
+            <summary>
+            Gets or sets the maximum length of the accepted entry in the field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.FieldType">
+            <summary>
+            Gets or sets the maximum length of the accepted entry in the field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.HideLabel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.AutocompleteAttribute">
+            <summary>
+            Gets or sets the form field's autocomplete attribute value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.FieldTypes.Textfield.SupportsRegex">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Models.DocumentMapper">
+            <summary>
+            Defines a mapping class used in the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode"/> workflow type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapper.DocTypeAlias">
+            <summary>
+            Gets or sets the document type alias.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapper.NameField">
+            <summary>
+            Gets or sets the field to use for the document name when mapping.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapper.NameStaticValue">
+            <summary>
+            Gets or sets the a static value that can be used for the document name in preference to a field defined in <see cref="P:Umbraco.Forms.Core.Providers.Models.DocumentMapper.NameField"/>.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapper.Properties">
+            <summary>
+            Gets or sets the properties.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Models.DocumentMapping">
+            <summary>
+            Defines a mapping class used by <see cref="T:Umbraco.Forms.Core.Providers.Models.DocumentMapper" /> in the mapping of properties
+            through the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode"/> workflow type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapping.Alias">
+            <summary>
+            Gets or sets the property alias.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapping.Field">
+            <summary>
+            Gets or sets the record field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapping.StaticValue">
+            <summary>
+            Gets or sets a static value to use instead of a record field defined in <see cref="P:Umbraco.Forms.Core.Providers.Models.DocumentMapping.Field"/>.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.DocumentMapping.HasValue">
+            <summary>
+            Gets a value indicating whether the mapping destinaion has a value.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Models.FieldMapping">
+            <summary>
+            Defines a mapping class used in the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml"/> and <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl"/> workflow type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.FieldMapping.Alias">
+            <summary>
+            Gets or sets the alias for the field mapping.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.FieldMapping.Value">
+            <summary>
+            Gets or sets the value to use for the field mapping.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.FieldMapping.StaticValue">
+            <summary>
+            Gets or sets a static value to use for the field mapping, in preference to the dynamic value provided by <see cref="P:Umbraco.Forms.Core.Providers.Models.FieldMapping.Value"/>.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Models.StandardField">
+            <summary>
+            Defines the fixed set of standard fields used in the <see cref="T:Umbraco.Forms.Core.Providers.Models.StandardFieldMapping" />
+            </summary>
+        </member>
+        <member name="F:Umbraco.Forms.Core.Providers.Models.StandardField.FormId">
+            <summary>
+            The form's Id.
+            </summary>
+        </member>
+        <member name="F:Umbraco.Forms.Core.Providers.Models.StandardField.FormName">
+            <summary>
+            The form's name.
+            </summary>
+        </member>
+        <member name="F:Umbraco.Forms.Core.Providers.Models.StandardField.PageUrl">
+            <summary>
+            The page URL from where the form has been submitted.
+            </summary>
+        </member>
+        <member name="F:Umbraco.Forms.Core.Providers.Models.StandardField.SubmissionDate">
+            <summary>
+            The date/time of the form submission.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.Models.StandardFieldMapping">
+            <summary>
+            Defines a mapping class used in the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml"/> and <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl"/> workflow type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.StandardFieldMapping.Field">
+            <summary>
+            Gets or sets the field for the standard field mapping.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.StandardFieldMapping.Include">
+            <summary>
+            Gets or sets a value indicating whether to include the field in the output.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.Models.StandardFieldMapping.KeyName">
+            <summary>
+            Gets or sets a value to use for the key name when sending the value.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.PreValues.DataSource">
+            <summary>
+            Defines a <see cref="T:Umbraco.Forms.Core.FieldPreValueSourceType"/> based on a datasource.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.DataSource.#ctor(Umbraco.Forms.Core.Services.IDataSourceService,Umbraco.Forms.Core.Providers.DataSourceTypeCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.PreValues.DataSource"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.DataSource.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.DataSource.GetPreValues(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile">
+            <summary>
+            Defines a <see cref="T:Umbraco.Forms.Core.FieldPreValueSourceType"/> based on the contents of a text file.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile.#ctor(Umbraco.Forms.Core.Data.IPreValueTextFileStorage,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile.TextFile">
+            <summary>
+            Gets or sets the file containing the prevalues (seperated by linebreak).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile.GetPreValues(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.GetValuesFromTextFile.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.PreValues.NodePreValues">
+            <summary>
+            Defines a <see cref="T:Umbraco.Forms.Core.FieldPreValueSourceType"/> based on a set of Umbraco nodes.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.#ctor(Umbraco.Cms.Core.Services.IContentService,Umbraco.Cms.Core.Services.IEntityService,Umbraco.Cms.Core.Web.IUmbracoContextAccessor,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.PreValues.NodePreValues"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.RootNode">
+            <summary>
+            Gets or sets the root node to fetch nodes from.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.UseCurrentPage">
+            <summary>
+            Gets or sets a value indicating whether to use the current page as the node source.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.DocType">
+            <summary>
+            Gets or sets the document type alias of the nodes to use.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.ListGrandChildren">
+            <summary>
+            Gets or sets a value indicating whether to not limit to children but also to include other levels.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.OrderBy">
+            <summary>
+            Gets or sets the ordering options for the prevalues.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.GetPreValues(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.NodePreValues.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql">
+            <summary>
+            Defines a <see cref="T:Umbraco.Forms.Core.FieldPreValueSourceType"/> based on a SQL query.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.#ctor(Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.Connection">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.ConnectionString">
+            <summary>
+            Gets or sets the connection string key defined in web.config.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.Table">
+            <summary>
+            Gets or sets the table name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.KeyColumn">
+            <summary>
+            Gets or sets the key column.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.ValueColumn">
+            <summary>
+            Gets or sets the value column.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.GetPreValues(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.ReadOnlySql.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly">
+            <summary>
+            Defines a <see cref="T:Umbraco.Forms.Core.FieldPreValueSourceType"/> based on a defined set of Umbraco prevalues.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly.#ctor(Umbraco.Cms.Core.Services.IDataTypeService,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly.DataTypeId">
+            <summary>
+            Gets or sets the datatype containing the prevalues.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly.GetPreValues(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.PreValues.UmbracoPreValuesReadOnly.GetPreValues(System.String)">
+            <summary>
+            Gets the prevalues for the provided datatype Id.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.RecordActions.Recordsets.ApproveRecordSet">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.Models.RecordSetActionType"/> to approve a bulk collection of <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/>s.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.RecordActions.Recordsets.ApproveRecordSet.#ctor(Umbraco.Forms.Core.Services.IRecordService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.RecordActions.Recordsets.ApproveRecordSet"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.RecordActions.Recordsets.ApproveRecordSet.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.RecordActions.Recordsets.ApproveRecordSet.Execute(System.Collections.Generic.List{Umbraco.Forms.Core.Persistence.Dtos.Record},Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.Models.RecordSetActionType"/> to delete a bulk collection of <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/>s.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet.#ctor(Umbraco.Forms.Core.Services.IRecordService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet.NeedsConfirm">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet.ConfirmMessage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.RecordActions.RecordSets.DeleteRecordSet.Execute(System.Collections.Generic.List{Umbraco.Forms.Core.Persistence.Dtos.Record},Umbraco.Forms.Core.Models.Form)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType">
+            <summary>
+            Provides common functionality for a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as an email notification.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.Email">
+            <summary>
+            Gets or sets the receiver email address(es).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.CcEmail">
+            <summary>
+            Gets or sets the receiver (CC) email address(es).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.BccEmail">
+            <summary>
+            Gets or sets the receiver (BCC) email address(es).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.SenderEmail">
+            <summary>
+            Gets or sets the sender email address.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.ReplyToEmail">
+            <summary>
+            Gets or sets the email subject.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.Subject">
+            <summary>
+            Gets or sets the email subject.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.TryCreateAttachment(Umbraco.Cms.Core.IO.MediaFileManager,System.String,Umbraco.Cms.Core.Models.Email.EmailMessageAttachment@,System.IO.Stream@)">
+            <summary>
+            Creates an attachment for an email from a file held in a media file system.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.TrackAttachmentFileStream(System.Collections.Generic.List{System.IO.Stream},System.IO.Stream)">
+            <summary>
+            Tracks a stream associated with a file created as an attachment for an email, for
+            subsequent clean-up.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseEmailWorkflowType.DisposeAttachmentFileStreams(System.Collections.Generic.IEnumerable{System.IO.Stream})">
+            <summary>
+            Disposes the streams assocated with the files created as attachments for an email, after
+            the email has been sent.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseSlackWorkflowType">
+            <summary>
+            Provides common functionality for a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as a Slack notification.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseSlackWorkflowType.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseSlackWorkflowType"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.BaseSlackWorkflowType.GenerateNotificationMessage(Umbraco.Forms.Core.Persistence.Dtos.Record,Umbraco.Forms.Core.Models.Form,System.Boolean)">
+            <summary>
+            Generates the Slack notification message from the provided <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> and <see cref="T:Umbraco.Forms.Core.Models.Form"/>.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to change the state of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> based on the values it contains.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState.#ctor(Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState.Words">
+            <summary>
+            Gets or sets the comma seperated list of words to match.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState.Action">
+            <summary>
+            Gets or sets the action to apply (delete or approve).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.ChangeRecordState.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to post a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as XML to a URL.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.#ctor(Umbraco.Forms.Core.Services.IXmlService,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml},Umbraco.Cms.Core.IO.MediaFileManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.Url">
+            <summary>
+            Gets or sets the URL to post to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.Method">
+            <summary>
+            Gets or sets the HTTP method (POST or GET).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.XsltFile">
+            <summary>
+            Gets or sets the path to an XSLT file used to transform the XML before posting it.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.Fields">
+            <summary>
+            Gets or sets the fields to include.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.Username">
+            <summary>
+            Gets or sets the username for authentication to the URL the XML is posted to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.Password">
+            <summary>
+            Gets or sets the password for authentication to the URL the XML is posted to.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.PostAsXml.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to post a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> to a URL as a name/value collection.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.#ctor(Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl},Umbraco.Cms.Web.Common.IUmbracoHelperAccessor,Umbraco.Cms.Core.Routing.IPublishedUrlProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.Url">
+            <summary>
+            Gets or sets the URL to post to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.Method">
+            <summary>
+            Gets or sets the HTTP method (POST or GET).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.StandardFields">
+            <summary>
+            Gets or sets the standard fields to include.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.Fields">
+            <summary>
+            Gets or sets the fields to include.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.Username">
+            <summary>
+            Gets or sets the username for authentication to the URL the XML is posted to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.Password">
+            <summary>
+            Gets or sets the password for authentication to the URL the XML is posted to.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.PostToUrl.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to save a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as a file.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile.#ctor(Umbraco.Forms.Core.Services.IXmlService,Microsoft.Extensions.Hosting.IHostEnvironment,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile.Path">
+            <summary>
+            Gets or sets the path to save the fiel to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile.Extension">
+            <summary>
+            Gets or sets the file extension to use for the saved file.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile.XsltFile">
+            <summary>
+            Gets or sets the path to an XSLT file used to transform the XML contents of the file before saving it.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsFile.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to save a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as an Umbraco node.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Umbraco.Cms.Core.Web.IUmbracoContextAccessor,Umbraco.Cms.Core.Services.IEntityService,Umbraco.Cms.Core.Services.IContentTypeService,Umbraco.Cms.Core.Services.IContentService,Umbraco.Cms.Core.Services.IDataTypeService,Umbraco.Cms.Core.Services.ILocalizationService,Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode.Fields">
+            <summary>
+            Gets or sets the fields to use to map to the document type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode.Publish">
+            <summary>
+            Gets or sets a value indicating whether to publish the created node instantly.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode.RootNode">
+            <summary>
+            Gets or sets the parent node under which the node will be created.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SaveAsUmbracoNode.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as an email.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail.#ctor(Umbraco.Forms.Core.Services.IXmlService,Umbraco.Forms.Core.Services.IWorkflowEmailService,Umbraco.Cms.Core.IO.MediaFileManager,Umbraco.Forms.Core.Data.Helpers.IDictionaryHelper,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail.Message">
+            <summary>
+            Gets or sets the introductory message for the email.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail.Attachment">
+            <summary>
+            Gets or sets a value indicating whether to attach file uploads to the email.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendEmail.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as an email using a Razor template.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Umbraco.Forms.Core.Services.IFieldTypeStorage,Umbraco.Forms.Core.Services.IFormService,Umbraco.Cms.Core.Web.IUmbracoContextAccessor,Umbraco.Forms.Core.Services.IPageService,Umbraco.Forms.Core.Services.IWorkflowEmailService,Umbraco.Cms.Core.IO.MediaFileManager,Umbraco.Cms.Core.IO.FileSystems,Umbraco.Cms.Core.Routing.IPublishedUrlProvider,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail},Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail.RazorViewFilePath">
+            <summary>
+            Gets or sets a path to the razor view used for generating the email.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail.Attachment">
+            <summary>
+            Gets or sets a value indicating whether to attach file uploads to the email.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendRazorEmail.ParseWithRazorView(Umbraco.Forms.Core.Persistence.Dtos.Record,System.String)">
+            <summary>
+                Parses a record with a Razor view to generate an HTML output to use in for instance an email
+            </summary>
+            <param name="record">The record</param>
+            <param name="razorViewFilePath">A relative path to a Razor view</param>
+            <returns>The generated output string usually HTML</returns>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as an email using an XSLT template.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail.#ctor(Umbraco.Forms.Core.Services.IXmlService,Umbraco.Forms.Core.Services.IWorkflowEmailService,Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail},Umbraco.Cms.Core.IO.MediaFileManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail.XsltFile">
+            <summary>
+            Gets or sets an XSLT file to transform the record's XML.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SendXsltEmail.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as a Slack notification.
+            </summary>
+            <remarks>
+            This implementation supports only the older method of Slack integration using legacy tokens that can no longer
+            be generated: https://api.slack.com/legacy/custom-integrations/legacy-tokens
+            It is retained in case any clients have these tokens and are still using it.
+            New implementations should use <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2"/>.
+            </remarks>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.#ctor(Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.Slack})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.Token">
+            <summary>
+            Gets or sets a token for authentication with the Slack API.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.Channel">
+            <summary>
+            Gets or sets the Slack channel to post the notification to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.Username">
+            <summary>
+            Gets or sets the Slack username or bot to post as.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.AvatarUrl">
+            <summary>
+            Gets or sets a full URL to the avatar logo.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.Slack.ValidateSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2">
+            <summary>
+            Provides a <see cref="T:Umbraco.Forms.Core.WorkflowType"/> to send the contents of a <see cref="T:Umbraco.Forms.Core.Persistence.Dtos.Record"/> as a Slack notification.
+            </summary>
+            <remarks>
+            This implementation supports only the newer method of Slack integration using webhooks.
+            See:
+                https://slack.com/intl/en-it/help/articles/115005265063-Incoming-webhooks-for-Slack
+                https://api.slack.com/messaging/webhooks#posting_with_webhooks
+            </remarks>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2.#ctor(Microsoft.Extensions.Logging.ILogger{Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2.WebhookUrl">
+            <summary>
+            Gets or sets the webhook URL.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2.Execute(Umbraco.Forms.Core.WorkflowExecutionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Core.Providers.WorkflowTypes.SlackV2.ValidateSettings">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

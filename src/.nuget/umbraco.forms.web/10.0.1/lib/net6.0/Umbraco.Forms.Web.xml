@@ -1,0 +1,2518 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Umbraco.Forms.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Umbraco.Forms.Web.Controllers.UmbracoFormsController">
+            <summary>
+            Package surface controller for rendering forms and processing form submissions.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Controllers.UmbracoFormsController.#ctor(Umbraco.Cms.Core.Web.IUmbracoContextAccessor,Umbraco.Cms.Infrastructure.Persistence.IUmbracoDatabaseFactory,Umbraco.Cms.Core.Services.ServiceContext,Umbraco.Cms.Core.Cache.AppCaches,Umbraco.Cms.Core.Logging.IProfilingLogger,Umbraco.Cms.Core.Routing.IPublishedUrlProvider,Umbraco.Cms.Core.Hosting.IHostingEnvironment,Umbraco.Forms.Core.Services.IRecordService,Umbraco.Forms.Core.Services.IFieldTypeStorage,Umbraco.Forms.Core.Services.IFieldPreValueSourceService,Umbraco.Forms.Core.Services.IFieldPreValueSourceTypeService,Umbraco.Cms.Web.Common.UmbracoHelper,Umbraco.Cms.Core.Security.IMemberManager,Umbraco.Forms.Core.Services.IPlaceholderParsingService,Umbraco.Forms.Web.Services.IFormRenderingService,Umbraco.Cms.Core.Events.IEventMessagesFactory,Umbraco.Cms.Core.Events.IEventAggregator,Microsoft.Extensions.Options.IOptions{Umbraco.Forms.Core.Configuration.PackageOptionSettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Controllers.UmbracoFormsController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Controllers.UmbracoFormsController.HandleForm(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Handles a form submission.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Controllers.UmbracoFormsController.OnFormHandled(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Triggered on form handled event.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Dashboards.FormsDashboard">
+            <summary>
+            Provides the forms application dashboard.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Dashboards.FormsDashboard.Alias">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Dashboards.FormsDashboard.Sections">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Dashboards.FormsDashboard.View">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Dashboards.FormsDashboard.AccessRules">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.CurrentUserFormSecurityController">
+            <summary>
+            Back-office editor controller for the current user's form security.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.CurrentUserFormSecurityController.#ctor(Umbraco.Forms.Data.Storage.IUserSecurityStorage,Umbraco.Forms.Data.Storage.IUserFormSecurityStorage,Umbraco.Forms.Data.Storage.IUserStartFolderStorage,Umbraco.Forms.Data.Storage.IUserGroupSecurityStorage,Umbraco.Forms.Data.Storage.IUserGroupFormSecurityStorage,Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Services.IFolderService,Umbraco.Cms.Core.Services.IUserService,Microsoft.Extensions.Options.IOptions{Umbraco.Forms.Core.Configuration.SecuritySettings},Umbraco.Cms.Core.Security.IBackOfficeSecurityAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.CurrentUserFormSecurityController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.CurrentUserFormSecurityController.GetForCurrentUser">
+            <summary>
+            Gets an instance of <see cref="!:FormSecurity"/> for the current user.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.DataSourceController">
+            <summary>
+            Back-office editor controller for datasources.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.#ctor(Umbraco.Forms.Core.Providers.DataSourceTypeCollection,Umbraco.Forms.Core.Services.IDataSourceService,Umbraco.Cms.Core.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.DataSourceController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.GetScaffold">
+            <summary>
+            Retrieves an empty, scaffold <see cref="T:Umbraco.Forms.Core.FormDataSource"/> for population.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.GetByGuid(System.Guid)">
+            <summary>
+            Retrieves a single <see cref="T:Umbraco.Forms.Core.FormDataSource"/> instance by it's key.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.DeleteByGuid(System.Guid)">
+            <summary>
+            Deletes a single <see cref="T:Umbraco.Forms.Core.FormDataSource"/> instance by it's key.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.PostSave(Umbraco.Forms.Core.FormDataSource)">
+            <summary>
+            Creates or updates a <see cref="T:Umbraco.Forms.Core.FormDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.ValidateSettings(Umbraco.Forms.Core.FormDataSource)">
+            <summary>
+            Validates the settings for a <see cref="T:Umbraco.Forms.Core.FormDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceController.GetAllDataSourceTypesWithSettings">
+            <summary>
+            Retrieves all datasource types with their settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.DataSourceWizardController">
+            <summary>
+            Back-office editor controller for the datasource wizard.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceWizardController.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Providers.FieldCollection,Umbraco.Forms.Core.Services.IFieldPreValueSourceService,Umbraco.Forms.Core.Services.IDataSourceService,Umbraco.Forms.Core.Providers.DataSourceTypeCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.DataSourceWizardController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceWizardController.GetScaffold(System.Guid)">
+            <summary>
+            Retrieves an empty, scaffold <see cref="T:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard"/> for population.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceWizardController.GetAllFieldTypes">
+            <summary>
+            Retrieves all field types.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.DataSourceWizardController.CreateForm(Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard)">
+            <summary>
+            Creates a form from a populated <see cref="T:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard"/>.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.ExportController">
+            <summary>
+            Back-office editor controller for export operations.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.ExportController.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Providers.ExportCollection,Umbraco.Cms.Core.IO.MediaFileManager,Umbraco.Cms.Core.Strings.IShortStringHelper,Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.ExportController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.ExportController.GetExportTypes(System.Guid)">
+            <summary>
+            Retrieves all available <see cref="T:Umbraco.Forms.Core.ExportType"/>s.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.ExportController.PostGenerateExport(Umbraco.Forms.Core.Models.RecordExportFilter)">
+            <summary>
+            When selecting an Export Type - we generate the file on disk to be exported
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.ExportController.GetExport(System.String,System.String)">
+            <summary>
+            This is used to stream a specific file form /umbraco/Data/TEMP/FileUploads/form-exports/formGUID/formName.xls
+            </summary>
+            <param name="formId">The form Id</param>
+            <param name="fileName">The filename to request formname.xls</param>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.FieldController">
+            <summary>
+            Back-office editor controller for fields.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FieldController.#ctor(Umbraco.Forms.Core.Services.IFieldTypeStorage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.FieldController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FieldController.ValidateSettings(Umbraco.Forms.Core.Models.Field)">
+            <summary>
+            Validates the <see cref="T:Umbraco.Forms.Core.Models.Field"/>'s settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.FormController">
+            <summary>
+            Back-office editor controller for forms.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.SaveForm(Umbraco.Forms.Web.Models.Backoffice.FormDesign)">
+            <summary>
+            Saves a provided form.
+            </summary>
+            <remarks>
+            New API endpoint for new Form Designer where workflows are part of the same model as Form.
+            </remarks>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.ContainsSensitiveData(System.Collections.Generic.List{Umbraco.Forms.Core.Models.Field})">
+            <summary>
+            Checks whether a list of fields contains sensitive data.
+            </summary>
+            <remarks>
+            TODO: FormsDB: Should be removed once we no longer use/support formstorage
+            </remarks>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.GetByGuid(System.Guid)">
+            <summary>
+            Load a specific form
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.GetWithWorkflowsByGuid(System.Guid)">
+            <summary>
+            Gets a form with workflows by the form's key.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Editors.FormController.GetScaffoldWithWorkflows(System.String)" -->
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.DeleteByGuid(System.Guid)">
+            <summary>
+            Deletes a form by it's key.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.GetFormTemplates">
+            <summary>
+            Get Form Templates that you are able to create a starting point
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Editors.FormController.GetOverView" -->
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.GetPrevalueSources">
+            <summary>
+            Gets all prevalue sources.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.GetAllFieldTypesWithSettings">
+            <summary>
+            Gets all field types with their settings.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.CopyForm(Umbraco.Forms.Web.Editors.CopyForm)">
+            <summary>
+            Copies a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.CreateFolder(Umbraco.Forms.Web.Editors.CreateFolder)">
+            <summary>
+            Creates a new folder.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.RenameFolder(Umbraco.Forms.Web.Editors.RenameFolder)">
+            <summary>
+            Renames a folder.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.MoveFolder(Umbraco.Forms.Web.Editors.MoveFolderOrForm)">
+            <summary>
+            Moves a folder.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.MoveForm(Umbraco.Forms.Web.Editors.MoveFolderOrForm)">
+            <summary>
+            Moves a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.IsFolderEmpty(System.Guid)">
+            <summary>
+            Checks for whether a folder is empty (and can safely be deleted).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormController.DeleteFolderByGuid(System.Guid)">
+            <summary>
+            Deletes a folder by it's key.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.CopyForm">
+            <summary>
+            Model POSTed to copy a form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyForm.Guid">
+            <summary>
+            Gets or sets the form's key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyForm.NewName">
+            <summary>
+            Gets or sets the new form's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyForm.CopyWorkflows">
+            <summary>
+            Gets or sets a value indicating whether workflows should also be copied along with the form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyForm.CopyToFolderId">
+            <summary>
+            Gets or sets the folder to copy the form to.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.CopyFormResponse">
+            <summary>
+            Model returned from a CopyForm operation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyFormResponse.Id">
+            <summary>
+            Gets or sets the new form's key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyFormResponse.Name">
+            <summary>
+            Gets or sets the new form's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CopyFormResponse.Path">
+            <summary>
+            Gets or sets the new form's path.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.CreateFolder">
+            <summary>
+            Model POSTed to create a folder.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CreateFolder.ParentId">
+            <summary>
+            Gets or sets the parent folder Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.CreateFolder.Name">
+            <summary>
+            Gets or sets the name for the new folder.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.RenameFolder">
+            <summary>
+            Model POSTed to rename a folder.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.RenameFolder.Id">
+            <summary>
+            Gets or sets the folder's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.RenameFolder.Name">
+            <summary>
+            Gets or sets the name for the renamed folder.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.MoveFolderOrForm">
+            <summary>
+            Model POSTed to move a folder or form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MoveFolderOrForm.ParentId">
+            <summary>
+            Gets or sets the folder to move the folder to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MoveFolderOrForm.Id">
+            <summary>
+            Gets or sets the folder's Id.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.ImportForm">
+            <summary>
+            Model POSTed to import a form
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.ImportForm.File">
+            <summary>
+            Gets or sets the file containing the serialized form definition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.ImportForm.FolderId">
+            <summary>
+            Gets or sets the Id of the folder in which to import the form (null if importing to root).
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.FormControllerBase">
+            <summary>
+            Base class for back-office API controllers returning form data.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormControllerBase.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Security.IFormsSecurity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.FormControllerBase"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.FormControllerBase.FormService">
+            <summary>
+            Gets the <see cref="!:IFormStorage"/> service.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.FormControllerBase.FormsSecurity">
+            <summary>
+            Gets the <see cref="T:Umbraco.Forms.Core.Security.IFormsSecurity"/> service.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormControllerBase.GetAllFormsForCurrentUser">
+            <summary>
+            Retrieves the full set of forms available to the current users (based on permissions and start folders).
+            </summary>
+            <returns>List of <see cref="T:Umbraco.Forms.Web.Models.Backoffice.BasicForm"/> instances.</returns>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.FormPickerController">
+            <summary>
+            Back-office editor controller for the form picker.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormPickerController.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Security.IFormsSecurity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.FormPickerController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormPickerController.GetFormsForPicker(System.Collections.Generic.List{System.Guid})">
+            <summary>
+            This gets all Forms that can be picked that the current user has access to
+            via the Users Form Security Tree in the Users Section.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormPickerController.GetPickedForm(System.Guid)">
+            <summary>
+                Gets a specific form using its formGuid/id
+                This will only get called when the saved value in the form picker
+                Is not visible in the list of forms from GetFormsForPicker method above
+                As another user may have picked a form to use on the content node, that this
+                speicifc user does not have acces to
+            </summary>
+            <param name="formGuid">The guid of the form to fetch</param>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormPickerController.GetPickedForms(System.Collections.Generic.List{System.Guid})">
+            <summary>
+            Used in the DocType PreValue editor (to save looping over picked forms)
+            We pass in a collection/array of form guids instead that we want some basic info for
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.FormSecurityController">
+            <summary>
+            Back-office editor controller for form security.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.#ctor(Umbraco.Forms.Data.Storage.IUserSecurityStorage,Umbraco.Forms.Data.Storage.IUserFormSecurityStorage,Umbraco.Forms.Data.Storage.IUserStartFolderStorage,Umbraco.Forms.Data.Storage.IUserGroupSecurityStorage,Umbraco.Forms.Data.Storage.IUserGroupFormSecurityStorage,Umbraco.Forms.Data.Storage.IUserGroupStartFolderStorage,Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Services.IFolderService,Umbraco.Cms.Core.Services.IUserService,Microsoft.Extensions.Options.IOptions{Umbraco.Forms.Core.Configuration.SecuritySettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.FormSecurityController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.GetByUserId(System.Int32,System.Boolean)">
+            <summary>
+            Gets an instance of <see cref="!:FormSecurity"/> by provided user Id.
+            </summary>
+            <param name="userId">The user Id.</param>
+            <param name="explicitOnly">
+            A flag indicating whether to retrieve only the security information defined explicity on the user record (used
+            when editing this information), or whether to use information defined on the user groups to define the net
+            permissions for the user (used when checking for permissions).
+            </param>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.GetByUserGroupId(System.Int32)">
+            <summary>
+            Gets an instance of <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup"/> by provided user group Id.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.PostSaveForUser(Umbraco.Forms.Web.Models.Backoffice.FormSecurityForUser)">
+            <summary>
+            Saves the provided <see cref="!:FormSecurity"/> details.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.PostSaveForGroup(Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup)">
+            <summary>
+            Saves the provided <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup"/> details.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.DeleteByUserId(System.Int32)">
+            <summary>
+            Deletes a users's security record.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityController.GetUsersWithoutSecurityRecords">
+            <summary>
+            Gets an instance of <see cref="!:FormSecurity"/> by provided user Id.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.FormSecurityControllerBase">
+            <summary>
+            Base class for back-office API controllers returning form security data.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.FormSecurityControllerBase.GetFormSecurityByUserId(System.Int32,System.Boolean)">
+            <summary>
+            Gets an instance of <see cref="!:FormSecurity"/> by provided user Id.
+            </summary>
+            <param name="userId">The user Id.</param>
+            <param name="explicitOnly">
+            A flag indicating whether to retrieve only the security information defined explicity on the user record (used
+            when editing this information), or whether to use information defined on the user groups to define the net
+            permissions for the user (used when checking for permissions).
+            </param>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.LicensingController">
+            <summary>
+            Back-office editor controller for licensing.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.LicensingController.GetLicenseStatus">
+            <summary>
+            Gets the licence status for the forms package.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.LicensingController.PostRetrieveAvailableLicenses(Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration)">
+            <summary>
+            Retrieves the available licences.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.LicensingController.PostConfigureLicense(Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration)">
+            <summary>
+            Configures provided licence details.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.PickerController">
+            <summary>
+            Back-office editor controller for pickers.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Cms.Core.Services.IDataTypeService,Umbraco.Cms.Core.Services.IContentTypeService,Umbraco.Cms.Core.Services.IMediaTypeService,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.PickerController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllConnectionStrings">
+            <summary>
+            Retrieves all connection strings from configuration.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllDataTypes">
+            <summary>
+            Retrieves all data types.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllDocumentTypes">
+            <summary>
+            Retrieves all document types.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllDocumentTypesWithAlias">
+            <summary>
+            Retrieves all document types.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllMediaTypes">
+            <summary>
+            Retrieves all media types.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllFields(System.Nullable{System.Guid})">
+            <summary>
+            Retrieves all fields for a form.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetAllProperties(System.String)">
+            <summary>
+            Gets all properties for a document type.
+            </summary>
+            <param name="doctypeAlias">The document type's alias.</param>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.Ping">
+            <summary>
+            Pings the endpoint.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.PostUpdateMappedProperties(Umbraco.Forms.Web.Editors.MappedPropertyData)">
+            <summary>
+            Updates the mapped properties from a document type.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PickerController.GetVirtualPathForEmailTemplate(System.String)">
+            <summary>
+            Gets the path to use in an email template.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.MappedPropertyData">
+            <summary>
+            Defines the mapped property data for a document type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MappedPropertyData.DoctypeAlias">
+            <summary>
+            Gets or sets the document type's alias.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MappedPropertyData.CurrentProperties">
+            <summary>
+            Gets or sets the mapped properties.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.MappedProperties">
+            <summary>
+            Defines the a mapped property for a document type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MappedProperties.Id">
+            <summary>
+            Gets or sets the Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MappedProperties.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MappedProperties.Field">
+            <summary>
+            Gets or sets the field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.MappedProperties.StaticValue">
+            <summary>
+            Gets or sets the static value.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.PreValueFileController">
+            <summary>
+            Back-office editor controller for prevalues from files.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueFileController.#ctor(Umbraco.Forms.Core.Data.IPreValueTextFileStorage,Umbraco.Forms.Core.Security.IFormsSecurity,Microsoft.Extensions.Hosting.IHostEnvironment,Umbraco.Cms.Core.Strings.IShortStringHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.PreValueFileController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueFileController.PostAddFile">
+            <summary>
+            Uploads a text file for use as a prevalue source.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.PreValueFileResponse">
+            <summary>
+            Defines a response object returned after upload of a text file for use as a prevalue source.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.PreValueFileResponse.UploadedFiles">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.PreValueFileResponse.FilePath">
+            <summary>
+            Gets or sets the uploaded file path.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.PreValueSourceController">
+            <summary>
+            Back-office editor controller for prevalue sources.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.#ctor(Umbraco.Forms.Core.Providers.FieldPreValueSourceCollection,Umbraco.Forms.Core.Services.IPrevalueSourceService,Umbraco.Forms.Core.Services.IFieldPreValueSourceTypeService,Umbraco.Cms.Core.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.PreValueSourceController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.GetScaffold">
+            <summary>
+            Retrieves an empty, scaffold <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/> for population.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.GetByGuid(System.Guid)">
+            <summary>
+            Retrieves a single <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/> by key.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.DeleteByGuid(System.Guid)">
+            <summary>
+            Deletes a single <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/> by key.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.PostSave(Umbraco.Forms.Core.FieldPreValueSource)">
+            <summary>
+            Creates or updates a <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.ValidateSettings(Umbraco.Forms.Core.FieldPreValueSource)">
+            <summary>
+            Validates the settings for a <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.GetPreValues(Umbraco.Forms.Core.FieldPreValueSource)">
+            <summary>
+            Retrieves the collection of <see cref="T:Umbraco.Forms.Core.Models.PreValue"/>s from a <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.GetPreValuesByGuid(System.String)">
+            <summary>
+            Retrieves the collection of <see cref="T:Umbraco.Forms.Core.Models.PreValue"/>s from a <see cref="T:Umbraco.Forms.Core.FieldPreValueSource"/>'s Id.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.PreValueSourceController.GetAllPreValueSourceTypesWithSettings">
+            <summary>
+            Retrieves all prevalue source types with their settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.RecordController">
+            <summary>
+            Back-office editor controller for records (form submissions).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Data.Storage.IRecordStorage,Umbraco.Cms.Infrastructure.Scoping.IScopeProvider,Umbraco.Cms.Infrastructure.Scoping.IScopeAccessor,Umbraco.Forms.Core.Providers.RecordSetActionCollection,Umbraco.Forms.Core.Searchers.IFormRecordSearcher,Umbraco.Cms.Core.Routing.IPublishedUrlProvider,Umbraco.Forms.Core.Services.IPlaceholderParsingService,Umbraco.Forms.Core.Security.IFormsSecurity,Umbraco.Forms.Core.Services.IFieldTypeStorage,Umbraco.Forms.Core.Data.Storage.IRecordAuditStorage,Umbraco.Cms.Core.Services.IUserService,Umbraco.Cms.Core.Security.IBackOfficeSecurityAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.RecordController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.GetNiceUrl(System.Int32)">
+            <summary>
+            Retrieves a URL to a provided page Id.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.PostRetrieveRecords(Umbraco.Forms.Core.Models.RecordFilter)">
+            <summary>
+            Retrieves a set of records based on a filter.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.PostRetrieveRecordsCount(Umbraco.Forms.Core.Models.RecordFilter)">
+            <summary>
+            Retrieves the count of a set of records based on a filter.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.PostRetrieveRecordsSummary(Umbraco.Forms.Core.Models.RecordFilter)">
+            <summary>
+            Retrieves a set of records based on a filter.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.GetRecordSetActions">
+            <summary>
+            Retrieves the available record set actions.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.PostExecuteRecordSetAction(Umbraco.Forms.Web.Models.Backoffice.RecordActionExecution)">
+            <summary>
+            Executes the provided recordset action.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.GetAuditTrail(System.Int32)">
+            <summary>
+            Retrives the audit trail for the record
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.RecordController.PostUpdateRecord(Umbraco.Forms.Web.Models.Backoffice.UpdateRecord)">
+            <summary>
+            Updates a record with the provided field values.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.ThemePickerController">
+            <summary>
+            Back-office editor controller for the theme picker.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.ThemePickerController.GetThemes">
+            <summary>
+            Retrieves available themes (from virtual and physical locations).
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.ThemePickerController.ThemePickerModel">
+            <summary>
+            Defines a model for the theme picker.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.ThemePickerController.ThemePickerModel.Name">
+            <summary>
+            Gets or sets the name of the theme.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.UpdatesController">
+            <summary>
+            Back-office editor controller for updates.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.UpdatesController.GetUpdateStatus">
+            <summary>
+            Retrieves the status of updates.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.UpdatesController.GetVersion">
+            <summary>
+            Gets the currrent version.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.UpdatesController.GetSavePlainTextPasswordsConfiguration">
+            <summary>
+            Gets the configuraton value for saving of plain text passwords.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.UpdatesController.UpdateStatus">
+            <summary>
+            Representation of the update status.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.UpdatesController.UpdateStatus.RemoteVersion">
+            <summary>
+            Gets or sets the remote version.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.UpdatesController.UpdateStatus.CurrentVersion">
+            <summary>
+            Gets or sets the current version.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.UpdatesController.UpdateStatus.IsPreRelease">
+            <summary>
+            Gets or sets a value indicating whether the update status is to a prerelease.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.UpdatesController.UpdateStatus.UpgradeAvailable">
+            <summary>
+            Gets or sets a value indicating whether an upgrade is available.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Editors.UpdatesController.UpdateStatus.HoursSinceInstall">
+            <summary>
+            Gets or sets the hours since the current version was installed.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Editors.WorkflowController">
+            <summary>
+            Back-office editor controller for workflows.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.WorkflowController.#ctor(Umbraco.Forms.Core.Services.IFormService,Umbraco.Forms.Core.Providers.WorkflowCollection,Umbraco.Forms.Core.Services.IWorkflowService,Umbraco.Cms.Core.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Editors.WorkflowController"/> class.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Editors.WorkflowController.ValidateWorkflowSettings(Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings)" -->
+        <member name="M:Umbraco.Forms.Web.Editors.WorkflowController.GetAllWorkflowTypesWithSettings">
+            <summary>
+            Retrieves all workflow types with their settings.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Editors.WorkflowController.GetAllWorkflows(System.Guid)">
+            <summary>
+            Gets all workflows for a form.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Editors.WorkflowController.GetScaffoldWorkflowType(System.Guid)" -->
+        <member name="T:Umbraco.Forms.Web.Extensions.EnumerableExtensionMethods">
+            <summary>
+            Provides extension methods on enumerable collections.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Extensions.EnumerableExtensionMethods.ContainsUniqueItems``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Extension method of IEnumerable to confirm if PreValues are unique.
+            </summary>
+            <remarks>
+            See: http://stackoverflow.com/questions/5391264/best-way-to-find-out-if-ienumerable-has-unique-values
+            </remarks>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Extensions.TempDataDictionaryExtensions">
+            <summary>
+            Defines extension methods for <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary"/>, used for storing non-string
+            data into TempData.
+            </summary>
+            <remarks>
+            Hat-tip: https://www.blakepell.com/asp-net-core-storing-objects-in-tempdata
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Extensions.TempDataDictionaryExtensions.Put``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String,``0)" -->
+        <member name="M:Umbraco.Forms.Web.Extensions.TempDataDictionaryExtensions.Get``1(Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary,System.String)">
+            <summary>
+            Gets an object from the TempData by deserializing it from JSON.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="tempData"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Umbraco.Forms.Web.FieldViewModelExtensions">
+            <summary>
+            Provides extension methods on <see cref="T:Umbraco.Forms.Web.Models.FieldViewModel"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.FieldViewModelExtensions.GetSettingValue``1(Umbraco.Forms.Web.Models.FieldViewModel,System.String,``0)">
+            <summary>
+            Fetches a setting by its alias, and tries to cast the setting value to a specific type.
+            </summary>
+            <typeparam name="T">Type of setting value</typeparam>
+            <param name="fieldViewModel">The <see cref="T:Umbraco.Forms.Web.Models.FieldViewModel"/> instance.</param>
+            <param name="settingAlias">Alias of the setting to retrieve.</param>
+            <param name="defaultValue">Value returned in case no value is provided.</param>
+        </member>
+        <member name="M:Umbraco.Forms.Web.FieldViewModelExtensions.GetFileUploadAsString(Umbraco.Forms.Web.Models.FieldViewModel,Umbraco.Forms.Data.FileSystem.FormsFileSystemForSavedData,System.String,System.String)">
+            <summary>
+            Fetches a file stored on a field settings collection as a string.
+            </summary>
+            <param name="fieldViewModel">The <see cref="T:Umbraco.Forms.Web.Models.FieldViewModel"/> instance.</param>
+            <param name="fileSystem">The file system.</param>
+            <param name="settingAlias">Alias of the setting to retrieve.</param>
+            <param name="defaultValue">Value returned in case no value is provided.</param>
+        </member>
+        <member name="M:Umbraco.Forms.Web.FieldViewModelExtensions.GetFileUploadAsPreValues(Umbraco.Forms.Web.Models.FieldViewModel,System.String,Umbraco.Forms.Core.Data.IPreValueTextFileStorage,System.Collections.Generic.IEnumerable{Umbraco.Forms.Core.Models.PreValue})">
+            <summary>
+            Helper to retrieve a stored txt file as a list of prevalues, splitting the file per-line into seperate prevalues.
+            </summary>
+            <param name="fieldViewModel">The <see cref="T:Umbraco.Forms.Web.Models.FieldViewModel"/> instance.</param>
+            <param name="settingAlias">Alias of the setting to retrieve.</param>
+            <param name="preValueTextFileStorage">the pre value text file storage.</param>
+            <param name="defaultValue">Value returned in case no value is provided.</param>
+        </member>
+        <member name="T:Umbraco.Forms.Web.FormViewModelExtensions">
+            <summary>
+            Provides extension methods on <see cref="T:Umbraco.Forms.Web.Models.FormViewModel"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.FormViewModelExtensions.AllFieldsAsJson(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Extension method for getting all fields guid and value pairs as a JSON string.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.FormViewModelExtensions.FieldsetConditionsAsJson(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Extension method for serializing the fieldset conditions into a JSON string.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.FormViewModelExtensions.FieldConditionsAsJson(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Extension method for serializing the field conditions into a JSON string
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.HtmlHelperExtensions">
+            <summary>
+            Provides extension methods on <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper"/>.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.SetFormThemeCssFile(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
+            <summary>
+            Set the primary form theme stylesheet path. This overrides an already assigned stylesheet.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.AddFormThemeCssFile(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
+            <summary>
+            Add a css file path to include on form render
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.AddFormThemeScriptFile(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
+            <summary>
+            Add a javascript file path to include on form render
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.GetThemeScriptFiles(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Returns a list of script files to include for the current form page being rendered
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.GetThemeCssFiles(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Returns a list of stylesshets to include in the current form page being rendered
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.RenderFormsScripts(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Microsoft.AspNetCore.Mvc.IUrlHelper,Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Renders the script tags for the forms scripts and ensures they are only output once per page.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.RenderFormsScripts(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Microsoft.AspNetCore.Mvc.IUrlHelper,Umbraco.Forms.Web.Models.FormViewModel,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Renders the script tags for the forms scripts and ensures they are only output once per page.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.RenderFormsStylesheets(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Microsoft.AspNetCore.Mvc.IUrlHelper,Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Renders the script tags for the forms stylesheets and ensure they are only output once per page.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.RenderFormsStylesheets(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Microsoft.AspNetCore.Mvc.IUrlHelper,Umbraco.Forms.Web.Models.FormViewModel,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Renders the script tags for the forms stylesheets and ensure they are only output once per page.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.SetFormFieldClass(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String,System.String)">
+            <summary>
+            Adds a class to the form field html element of a given type. If no type is given, it will add the class to all fields
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.GetFormFieldClass(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
+            <summary>
+            Retrieves all classes for a given field type, used when rendering form fields
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.GetFormFieldWrapperClass(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String)">
+            <summary>
+            Retrieves all wrapper classes for a given field type, used when rendering form fields
+            This class wraps both label, help-text and the field itself.
+            </summary>
+            <returns>a HtmlString containing all classes applied to the provided fieldtype</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.SetFormFieldWrapperClass(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String,System.String)">
+            <summary>
+            Adds a class to the div element wrapping around form fields of a given type. If no type is given, it will add the class to all fields
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.HtmlHelperExtensions.RenderUmbracoFormDependencies(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
+            <summary>
+            Renders the Umbraco form dependencies.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.JQueryUIDatePickerHelper">
+            <summary>
+            Provides extension methods on <see cref="T:Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper"/> to support the jquery UI date picker.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.JQueryUIDatePickerHelper.ConvertDateFormat(Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper)">
+            <summary>
+            Converts the .net supported date format current culture format into JQuery Datepicker format.
+            </summary>
+            <param name="html">HtmlHelper object.</param>
+            <returns>Format string that supported in JQuery Datepicker.</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.JQueryUIDatePickerHelper.ConvertDateFormat(Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper,System.String)">
+            <summary>
+            Converts the .net supported date format current culture format into JQuery Datepicker format.
+            </summary>
+            <param name="html">HtmlHelper object.</param>
+            <param name="format">Date format supported by .NET.</param>
+            <returns>Format string that supported in JQuery Datepicker.</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Helpers.ViewHelper.RenderPartialViewToString(System.String,System.Object)">
+            <summary>
+            Renders a partial view to a string.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Helpers.FakeController">
+            <summary>
+            Empty controller use to obtain controller context.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.HttpModules.ProtectFormUploadRequestsMiddleware">
+            <summary>
+            Ensures that requests to the form's upload path are authorized and only authenticated back-office users
+            with permissions for the form have access.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.BasicFieldType">
+            <summary>
+            Defines a basic field type representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.BasicFieldType.Id">
+            <summary>
+            Gets or sets the field type Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.BasicFieldType.Name">
+            <summary>
+            Gets or sets the field type name.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.BasicForm">
+            <summary>
+            Defines a basic form representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.BasicForm.Id">
+            <summary>
+            Gets or sets the form's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.BasicForm.Name">
+            <summary>
+            Gets or sets the form's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.BasicForm.Fields">
+            <summary>
+            Gets or sets the form's fields.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.BasicForm.Summary">
+            <summary>
+            Gets or sets the form's summary.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.DataSourceTypeWithSettings">
+            <summary>
+            Defines a datasource type representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceTypeWithSettings.Id">
+            <summary>
+            Gets or sets the datasource's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceTypeWithSettings.Name">
+            <summary>
+            Gets or sets the datasource's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceTypeWithSettings.Description">
+            <summary>
+            Gets or sets the datasource's description.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceTypeWithSettings.Settings">
+            <summary>
+            Gets or sets the datasource's settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard">
+            <summary>
+            Defines a datasource creation wizard.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard.DataSourceGuid">
+            <summary>
+            Gets or sets the datasource's key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard.FormName">
+            <summary>
+            Gets or sets the associated form name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizard.Mappings">
+            <summary>
+            Gets or sets the field mappings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping">
+            <summary>
+            Defines a datasource creation wizard's field mapping entry.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.Name">
+            <summary>
+            Gets or sets the field's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.Include">
+            <summary>
+            Gets or sets a value indicating whether the field should be included.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.PrevalueKeyField">
+            <summary>
+            Gets or sets the primary key field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.PrevalueValueField">
+            <summary>
+            Gets or sets the prevalue value field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.PrevalueSource">
+            <summary>
+            Gets or sets the prevalue source.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.AvailablePrevalueValueFields">
+            <summary>
+            Gets or sets the list of available prevalue value fields.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.IsForeignKey">
+            <summary>
+            Gets or sets a value indicating whether the field is a foreign key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.IsMandatory">
+            <summary>
+            Gets or sets the a value indicating whether the field is mandatory.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.DataType">
+            <summary>
+            Gets or sets the field's datatype.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.DefaultValue">
+            <summary>
+            Gets or sets the field's default value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.FieldTypeId">
+            <summary>
+            Gets or sets the field type Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.IsPrimaryKey">
+            <summary>
+            Gets or sets a value indicating whether the field is a primary key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.DataSourceWizardFieldMapping.AllowNulls">
+            <summary>
+            Gets or sets the a value indicating whether the field allows null values.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings">
+            <summary>
+            Defines a field type representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.Id">
+            <summary>
+            Gets or sets the field type's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.Name">
+            <summary>
+            Gets or sets the field type's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.Icon">
+            <summary>
+            Gets or sets the field type's icon.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.Group">
+            <summary>
+            Gets or sets the field type's group.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.SortOrder">
+            <summary>
+            Gets or sets the field type's sort order.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.Description">
+            <summary>
+            Gets or sets the field type's description.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.SupportsPrevalues">
+            <summary>
+            Gets or sets a value indicating whether the field type supports prevalues.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.SupportsUploadTypes">
+            <summary>
+            Gets or sets a value indicating whether the field type supports file uploads.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.SupportsMandatory">
+            <summary>
+            Gets or sets a value indicating whether the field type supports mandatory validation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.SupportsRegex">
+            <summary>
+            Gets or sets a value indicating whether the field type supports validation by regular expression.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.HideLabel">
+            <summary>
+            Gets or sets a value indicating whether the field types label should be hidden.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.HideField">
+            <summary>
+            Gets or sets a value indicating whether a field of the the field type should be hidden.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.Settings">
+            <summary>
+            Gets or sets the field type's settings.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FieldTypeWithSettings.View">
+            <summary>
+            Gets or sets the field type's view for rendering.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Umbraco.Forms.Web.Models.Backoffice.FormDesign" -->
+        <member name="M:Umbraco.Forms.Web.Models.Backoffice.FormDesign.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormDesign"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.Backoffice.FormDesign.#ctor(Umbraco.Forms.Core.Configuration.DefaultFormSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormDesign"/> class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormDesign.FormWorkflows">
+            <summary>
+            Gets or sets the form workflows.
+            </summary>
+            <remarks>
+            An instance of <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormWorkflows"/> that contains two arrays of workflow objects.
+            </remarks>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormDesign.Path">
+            <summary>
+            Gets or sets the path to the form in the tree as a comma separated list of values.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormDesign.ContentApps">
+            <summary>
+            Gets or sets the collection of content apps associated with the form.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup">
+            <summary>
+            Defines a representation of form security defined for a user group.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup.UserGroupSecurity">
+            <summary>
+            Gets or sets the group level security.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup.StartFolders">
+            <summary>
+            Gets or sets the user start folder keys.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForGroup.FormsSecurity">
+            <summary>
+            Gets or sets the per-form level security.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForUser">
+            <summary>
+            Defines a representation of form security defined for a user.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForUser.UserSecurity">
+            <summary>
+            Gets or sets the user level security.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForUser.StartFolders">
+            <summary>
+            Gets or sets the user start folder keys.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormSecurityForUser.FormsSecurity">
+            <summary>
+            Gets or sets the per-form level security.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.FormWorkflows">
+            <summary>
+            Defines the form workflows associated with <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormDesign"/> (the form designer representation).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflows.OnSubmit">
+            <summary>
+            Gets or sets a collection of workflows to run on form submission.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflows.OnApprove">
+            <summary>
+            Gets or sets a collection of workflows to run on form approval.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings">
+            <summary>
+            Defines a form workflow representation associated with <see cref="T:Umbraco.Forms.Web.Models.Backoffice.FormDesign"/> (the form designer representation).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.Id">
+            <summary>
+            Gets or sets the workflow's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.Name">
+            <summary>
+            Gets or sets the workflow's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.Form">
+            <summary>
+            Gets or sets the workflow's form key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.Active">
+            <summary>
+            Gets or sets a value indicating whether the workflow is active.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.IncludeSensitiveData">
+            <summary>
+            Gets or sets a value indicating whether the workflow contains sensitive data.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.IsDeleted">
+            <summary>
+            Gets or sets a value indicating whether the workflow is active is deleted.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.SortOrder">
+            <summary>
+            Gets or sets the workflow's sort order.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.WorkflowTypeId">
+            <summary>
+            Gets or sets the Id of the workflow's type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.WorkflowTypeName">
+            <summary>
+            Gets or sets the name of the workflow's type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.WorkflowTypeDescription">
+            <summary>
+            Gets or sets the description of the workflow's type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.WorkflowTypeIcon">
+            <summary>
+            Gets or sets the icon of the workflow's type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.WorkflowTypeGroup">
+            <summary>
+            Gets or sets the group of the workflow's type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.FormWorkflowWithTypeSettings.Settings">
+            <summary>
+            Gets or sets the workflow's settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.License">
+            <summary>
+            Defines a license view model.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.License.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.License.Bindings">
+            <summary>
+            Gets or sets the domain bindings.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.License.Id">
+            <summary>
+            Gets or set the Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.License.Configured">
+            <summary>
+            Gets or sets a value indicating whether the license is configured.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration">
+            <summary>
+            Defines a licence configuration representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration.Email">
+            <summary>
+            Gets or sets the email address.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration.Password">
+            <summary>
+            Gets or set the password.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration.License">
+            <summary>
+            Gets or sets the license.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.LicenseConfiguration.Domain">
+            <summary>
+            Gets or sets the domain.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.PickerItem">
+            <summary>
+            Defines a picker item representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.PickerItem.Id">
+            <summary>
+            Gets or sets the Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.PickerItem.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.PreValueSourceTypeWithSettings">
+            <summary>
+            Defines a prevalue source type representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.PreValueSourceTypeWithSettings.Id">
+            <summary>
+            Gets or sets the prevalue source's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.PreValueSourceTypeWithSettings.Name">
+            <summary>
+            Gets or sets the prevalue source's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.PreValueSourceTypeWithSettings.Description">
+            <summary>
+            Gets or sets the prevalue source's description.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.PreValueSourceTypeWithSettings.Settings">
+            <summary>
+            Gets or sets the prevalue source's settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.RecordActionExecution">
+            <summary>
+            Defines a representation of a record action execution.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.RecordActionExecution.RecordKeys">
+            <summary>
+            Gets or sets the record keys to apply the action to.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.RecordActionExecution.ActionId">
+            <summary>
+            Gets or sets the Id of the action.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.RecordActionExecution.FormId">
+            <summary>
+            Gets or sets the form's Id.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.RecordAuditEntry">
+            <summary>
+            Defines a result type for a record audit entry.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.RecordAuditEntry.UpdatedOn">
+            <summary>
+            Gets or sets the datetime when the record was updated.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.RecordAuditEntry.UpdatedBy">
+            <summary>
+            Gets or sets the name of the back-office user that updated the record.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.Setting">
+            <summary>
+            Defines a setting.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.Setting.Name">
+            <summary>
+            Gets or sets the setting's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.Setting.Alias">
+            <summary>
+            Gets or sets the setting's alias.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.Setting.Description">
+            <summary>
+            Gets or sets the setting's description.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.Setting.Prevalues">
+            <summary>
+            Gets or sets the setting's prevalues.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.Setting.View">
+            <summary>
+            Gets or sets the setting's view.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.Setting.DisplayOrder">
+            <summary>
+            Gets or sets the setting's display order.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue">
+            <summary>
+            Defines a setting with a value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.Name">
+            <summary>
+            Gets or sets the setting's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.Alias">
+            <summary>
+            Gets or sets the setting's alias.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.Description">
+            <summary>
+            Gets or sets the setting's description.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.Prevalues">
+            <summary>
+            Gets or sets the setting's prevalues.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.View">
+            <summary>
+            Gets or sets the setting's view.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.Value">
+            <summary>
+            Gets or sets the setting's value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.SettingWithValue.DisplayOrder">
+            <summary>
+            Gets or sets the setting's display order.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.StartFolder">
+            <summary>
+            Defines a representation of a selected start folder.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.StartFolder.Id">
+            <summary>
+            Gets or sets the folder's key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.StartFolder.Name">
+            <summary>
+            Gets or sets the folder's name.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord">
+            <summary>
+            Defines a representation of a record update command.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord.RecordId">
+            <summary>
+            Gets or sets the Id of the record.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord.FormId">
+            <summary>
+            Gets or sets the Id of the form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord.FieldValues">
+            <summary>
+            Gets or sets the record field values to update.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord.UpdateRecordField">
+            <summary>
+            Defines a representation of field data for a record update command.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord.UpdateRecordField.FieldId">
+            <summary>
+            Gets or sets the Id of the field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecord.UpdateRecordField.Values">
+            <summary>
+            Gets or sets the values for the field.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.UpdateRecordResult">
+            <summary>
+            Defines a result type for an update record operation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecordResult.Success">
+            <summary>
+            Gets or sets a value indicating whether the operation succeeded.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecordResult.FieldMessages">
+            <summary>
+            Gets or sets the field validation error messages.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.UpdateRecordResult.FieldMessage">
+            <summary>
+            Defines a field message populated during an update record operation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecordResult.FieldMessage.FieldId">
+            <summary>
+            Gets or sets a value for the field's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.UpdateRecordResult.FieldMessage.Messages">
+            <summary>
+            Gets or sets a value for the field's messages.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.WorkflowSortUpdate">
+            <summary>
+            Defines a workflow sort update operation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowSortUpdate.State">
+            <summary>
+            Gets or sets the state on which the updated workflow should execute.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowSortUpdate.Guids">
+            <summary>
+            Gets or sets the workflow Ids (provided in new sort order).
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings">
+            <summary>
+            Defines a workflow type representation.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings.Id">
+            <summary>
+            Gets or sets the workflow type's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings.Name">
+            <summary>
+            Gets or sets the workflow type's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings.Description">
+            <summary>
+            Gets or sets the workflow type's description.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings.Icon">
+            <summary>
+            Gets or sets the workflow type's icon.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings.Group">
+            <summary>
+            Gets or sets the workflow type's group.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.Backoffice.WorkflowTypeWithSettings.Settings">
+            <summary>
+            Gets or sets the workflow type's settings.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.ConditionRuleViewModel">
+            <summary>
+            Defines a view model for a condition rule.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionRuleViewModel.Id">
+            <summary>
+            Gets or sets the conditions rule's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionRuleViewModel.FieldsetId">
+            <summary>
+            Gets or sets the conditions rule's fieldset Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionRuleViewModel.Field">
+            <summary>
+            Gets or sets the conditions rule's field Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionRuleViewModel.Operator">
+            <summary>
+            Gets or sets the conditions rule's operator.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionRuleViewModel.Value">
+            <summary>
+            Gets or sets the conditions rule's value.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.ConditionRuleViewModel.Build(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.FieldConditionRule,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <summary>
+            Creates a new instance of the <see cref="T:Umbraco.Forms.Web.Models.ConditionRuleViewModel"/> class based on the provided form and rule.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.ConditionViewModel">
+            <summary>
+            Defines a view model for a condition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionViewModel.Id">
+            <summary>
+            Gets or sets the condition's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionViewModel.ActionType">
+            <summary>
+            Gets or sets the condition's action type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionViewModel.LogicType">
+            <summary>
+            Gets or sets the condition's logic type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.ConditionViewModel.Rules">
+            <summary>
+            Gets or sets the condition's rules.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.ConditionViewModel.Build(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Models.FieldCondition,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <summary>
+            Creates a new instance of the <see cref="T:Umbraco.Forms.Web.Models.ConditionViewModel"/> class based on the provided form and condition.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.FieldsetContainerViewModel">
+            <summary>
+            Defines a view model for a fieldset container.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetContainerViewModel.Caption">
+            <summary>
+            Gets or sets the container's caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetContainerViewModel.Width">
+            <summary>
+            Gets or sets the container's width.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetContainerViewModel.Fields">
+            <summary>
+            Gets or sets the container's fields.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.FieldSettingViewModel">
+            <summary>
+            Defines a view model for a field setting.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldSettingViewModel.Key">
+            <summary>
+            Gets or sets the settings's key.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldSettingViewModel.Value">
+            <summary>
+            Gets or sets the settings's value.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.FieldsetViewModel">
+            <summary>
+            Defines a view model for a fieldset.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.Id">
+            <summary>
+            Gets or sets the fieldset's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.Caption">
+            <summary>
+            Gets or sets the fieldset's caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.HasCondition">
+            <summary>
+            Gets or sets a value indicating whether the fieldset has a condition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.ConditionActionType">
+            <summary>
+            Gets or sets the fieldset's condition's action type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.ConditionLogicType">
+            <summary>
+            Gets or sets the fieldset's condition's logic type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.ConditionRules">
+            <summary>
+            Gets or sets the fieldset's condition's rules.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.ParentConditions">
+            <summary>
+            Gets or sets the fieldset's parent's conditions.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.Condition">
+            <summary>
+            Gets or sets the fieldset's condition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldsetViewModel.Containers">
+            <summary>
+            Gets or sets the fieldset's containers.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.FieldViewModel">
+            <summary>
+            Defines a view model for a field.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Id">
+            <summary>
+            Gets or sets the field's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.FieldsetId">
+            <summary>
+            Gets or sets the field's fieldset's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.PageId">
+            <summary>
+            Gets or sets the field's page's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Alias">
+            <summary>
+            Gets or sets the field's alias.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Name">
+            <summary>
+            Gets or sets the field's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Caption">
+            <summary>
+            Gets or sets the field's caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Mandatory">
+            <summary>
+            Gets or sets a value indicating whether the field is mandatory for completion.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.RequiredErrorMessage">
+            <summary>
+            Gets or sets the field's validation message to display if it's mandatory and not completed.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Validate">
+            <summary>
+            Gets or sets a value indicating whether the field should be validated against a regular expression.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Regex">
+            <summary>
+            Gets or sets a regular expression to validate the field's entry against.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.InvalidErrorMessage">
+            <summary>
+            Gets or sets the field's validation message to display if it doesn't match the provided regular expression.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.FieldTypeName">
+            <summary>
+            Gets or sets the field's type's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.FieldType">
+            <summary>
+            Gets or sets the field's type..
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.HideLabel">
+            <summary>
+            Gets or sets a value indicating whether the label for the field should be hidden.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ShowIndicator">
+            <summary>
+            Gets or sets a value indicating whether the indicator for the field should be shown.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ToolTip">
+            <summary>
+            Gets or sets the field's tooltip.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.CssClass">
+            <summary>
+            Gets or sets the field's CSS class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.PreValues">
+            <summary>
+            Gets or sets the field's prevalues.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.AllowAllUploadExtensions">
+            <summary>
+            Gets or sets a value indicating whether any file extension is allowed for upload (if uploads for the field are supported).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.AllowedUploadExtensions">
+            <summary>
+            Gets or sets the field's allowed upload file types (if uploads for the field are supported and <see cref="P:Umbraco.Forms.Web.Models.FieldViewModel.AllowAllUploadExtensions"/> is <see cref="!:false"/>).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.AllowMultipleFileUploads">
+            <summary>
+            Gets or sets a value indicating whether multiple file uploads are allowed (if uploads for the field are supported).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.AdditionalSettings">
+            <summary>
+            Gets or sets the field's settings.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.HasCondition">
+            <summary>
+            Gets or sets a value indicating whether the field has a condition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.PlaceholderText">
+            <summary>
+            Gets or sets the field's placeholder text.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ConditionActionType">
+            <summary>
+            Gets or sets the field's action type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ConditionLogicType">
+            <summary>
+            Gets or sets the field's condition logic type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ConditionRules">
+            <summary>
+            Gets or sets the field's condition rules.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ParentConditions">
+            <summary>
+            Gets or sets the field's parent conditions.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Condition">
+            <summary>
+            Gets or sets the field's condition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.Values">
+            <summary>
+            Gets or sets the field's provided values.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ValueAsObject">
+            <summary>
+            Gets the field's value as an object (the first value if more than one).
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FieldViewModel.ValueAsHtmlString">
+            <summary>
+            Gets the field's value as an HTML string (the first value if more than one).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.FieldViewModel.ContainsValue(System.Object)">
+            <summary>
+            Gets a value indicating whether the field contains a value.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.FieldViewModel.SetFileUploadOptions(Umbraco.Forms.Core.Models.Field)">
+            <summary>
+            Sets properties on the view model relating to file uploads.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.FormViewModel">
+            <summary>
+            Defines a view model for a form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FormId">
+            <summary>
+            Gets or sets the form's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FormClientId">
+            <summary>
+            Gets or sets the form's client Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FormName">
+            <summary>
+            Gets or sets the form's name.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.Pages">
+            <summary>
+            Gets or sets the form's pages.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FormStep">
+            <summary>
+            Gets or sets the form's step number.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.RecordId">
+            <summary>
+            Gets or sets the form's associated record (form submission) Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.Theme">
+            <summary>
+            Gets or sets the form's them.
+            </summary>
+            <remarks>
+            WIP: adding a theme alias which will default to /partials/forms/theme/alias/form.cshtml
+            </remarks>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.RenderScriptFiles">
+            <summary>
+            Gets or sets a value indicating whether to render the script files.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FormState">
+            <summary>
+            Gets or sets the form's state.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.SubmitHandled">
+            <summary>
+            Gets or sets a value indicating whether the form has been submitted.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.Indicator">
+            <summary>
+            Gets or sets the form's field indicator.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.ShowFieldValidaton">
+            <summary>
+            Gets or sets a value indicating whether field validation should be shown.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.ShowValidationSummary">
+            <summary>
+            Gets or sets a value indicating whether the validation summary should be shown.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.MessageOnSubmit">
+            <summary>
+            Gets or sets the form's message to display following submission
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.DisableDefaultStylesheet">
+            <summary>
+            Gets or sets a value indicating whether default stylesheet should be disabled.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.PreviousClicked">
+            <summary>
+            Gets or sets the form's previous clicked value.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.RecordState">
+            <summary>
+            Gets or sets the form's base 64 encoded record state.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.CurrentPage">
+            <summary>
+            Gets the form's current page..
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.IsMultiPage">
+            <summary>
+            Gets or sets a value indicating whether the form is a multi-page form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.IsFirstPage">
+            <summary>
+            Gets or sets a value indicating whether the form's first page is being displayed.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.IsLastPage">
+            <summary>
+            Gets or sets a value indicating whether the form's last page is being displayed.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.CssClass">
+            <summary>
+            Gets or sets the form's CSS class.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.SubmitCaption">
+            <summary>
+            Gets or sets the form's submit button caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.NextCaption">
+            <summary>
+            Gets or sets the form's next page button caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.PreviousCaption">
+            <summary>
+            Gets or sets the form's previous page button caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.PageButtonConditions">
+            <summary>
+            Gets or sets the form's page button conditions.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FieldsetConditions">
+            <summary>
+            Gets or sets the form's fieldset conditions.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.FieldConditions">
+            <summary>
+            Gets or sets the form's field conditions.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.HtmlAttributes">
+            <summary>
+            Gets or sets the HTML attributes to apply to the rendered form.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.FormViewModel.JavaScriptTagAttributes">
+            <summary>
+            Gets or sets the HTML attributes that will be applied to the {script} tags rendered.
+            </summary>
+            <remarks>
+            By default forms scripts will have the defer attribute applied. This should have no adverse side affects since
+            the forms scripts don't rely on in-line script processing, they will all happily execute when the document is ready.
+            </remarks>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.FormViewModel.GetFieldsNotDisplayed">
+            <summary>
+            Retrieves a list of fields not currently displayed on the current form step.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.FormViewModel.Build(Umbraco.Forms.Core.Models.Form,Umbraco.Forms.Core.Services.IFieldTypeStorage,Umbraco.Forms.Core.Services.IFieldPreValueSourceService,Umbraco.Forms.Core.Services.IFieldPreValueSourceTypeService,Umbraco.Cms.Core.Cache.AppCaches,Umbraco.Cms.Core.Hosting.IHostingEnvironment,Umbraco.Forms.Core.Services.IPlaceholderParsingService)">
+            <summary>
+            Builds the view model from the provided form and services.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.Mapping.FormDesignMapping">
+            <summary>
+            Defines mapping profiles for the form designer.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.Mapping.FormDesignMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Models.Mapping.FormDesignMapping"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.Mapping.FormDesignMapping.DefineMaps(Umbraco.Cms.Core.Mapping.IUmbracoMapper)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.PageViewModel">
+            <summary>
+            Defines a view model for a page.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.Caption">
+            <summary>
+            Gets or sets the page's caption.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.Fieldsets">
+            <summary>
+            Gets or sets the page's fieldsets.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.Id">
+            <summary>
+            Gets or sets the page's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.HasButtonCondition">
+            <summary>
+            Gets or sets a value indicating whether the page has a condition for button display.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.ButtonConditionActionType">
+            <summary>
+            Gets or sets the page's button condition's action type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.ButtonConditionLogicType">
+            <summary>
+            Gets or sets the page's button condition's logic type.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.ButtonConditionRules">
+            <summary>
+            Gets or sets the page's button condition's rules.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.ButtonCondition">
+            <summary>
+            Gets or sets the page's button condition.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.JavascriptFiles">
+            <summary>
+            Gets or sets the page's JavaScript files.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.CssFiles">
+            <summary>
+            Gets or sets the page's CSS files.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.JavascriptCommands">
+            <summary>
+            Gets or sets the page's JavaScript commands.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PageViewModel.PartialViewFiles">
+            <summary>
+            Gets or sets the page's partial view files.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.PageViewModel.RegisterFieldJavascriptAssets(Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.FieldType,Umbraco.Cms.Core.Hosting.IHostingEnvironment)">
+            <summary>
+            Registers the JavaSscript assets for a field on the page.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Models.PageViewModel.RegisterFieldJavascriptAssets(System.Func{System.String},Umbraco.Forms.Core.Models.Field,Umbraco.Forms.Core.FieldType,Umbraco.Cms.Core.Hosting.IHostingEnvironment)">
+            <summary>
+            Registers the themed JavaSscript assets for a field on the page.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Models.PrevalueViewModel">
+            <summary>
+            Defines a view model for a prevalue.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PrevalueViewModel.Id">
+            <summary>
+            Gets or sets the prevalue's Id.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Models.PrevalueViewModel.Value">
+            <summary>
+            Gets or sets the prevalue's value.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormRenderingService.PrePopulateForm(Umbraco.Forms.Core.Models.Form,Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Web.Models.FormViewModel,Umbraco.Forms.Core.Persistence.Dtos.Record)">
+            <summary>
+            Prepopulates a newly created or existing form with custom values.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormRenderingService.ExtractDataFromPages(Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Web.Models.FormViewModel,Umbraco.Forms.Core.Models.Form)">
+            <summary>
+            This method extracts the data from all the pages then saves and resumes the state
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormRenderingService.ExtractPagesState(Umbraco.Forms.Web.Models.FormViewModel,Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Models.Form)">
+            <summary>
+            Extracts the data from all the pages
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormRenderingService.ExtractAllPagesState(Umbraco.Forms.Web.Models.FormViewModel,Microsoft.AspNetCore.Http.HttpContext,Umbraco.Forms.Core.Models.Form)">
+            <summary>
+            Needed when pre-population is used as we need the state of all fields and not only the ones on the  current page
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormRenderingService.ResumeFormState(Umbraco.Forms.Web.Models.FormViewModel,System.Collections.Generic.Dictionary{System.String,System.Object[]},System.Boolean)">
+            <summary>
+            For repopulating the form object with data entered previously
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Services.FormThemeResolver">
+            <summary>
+            Resolves theme specific partial views for forms.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormThemeResolver.GetFormSubmittedView(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Retrieve the view to show the forms submitted state, Default is /Vews/Partials/Forms/Themes/default/Submitted.cshtml
+            Method will search for a theme specific view at /Views/Partials/Forms/Themes/[themealias]/Submitted.cshtml
+            </summary>
+            <returns>Path to the view</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormThemeResolver.GetFormView(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Retrieve the view to render the form fieldsets and fields, Default is /Vews/Partials/Forms/Themes/default/Form.cshtml
+            Method will search for a theme specific view at /Views/Partials/Forms/Themes/[themealias]/Form.cshtml
+            </summary>
+            <returns>Path to the view</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormThemeResolver.GetFormRender(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Retrieve the view to render the entire form and validation logic, Default is /Vews/Partials/Forms/Themes/default/Render.cshtml
+            Method will search for a theme specific view at /Views/Partials/Forms/Themes/[themealias]/Render.cshtml
+            </summary>
+            <returns>Path to the view</returns>
+            <remarks>
+            Default is /Views/Partials/Forms/Render.cshtml
+            </remarks>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormThemeResolver.GetScriptView(Umbraco.Forms.Web.Models.FormViewModel)">
+            <summary>
+            Retrieve the view to render the form javascript code, Default is /Vews/Partials/Forms/Themes/default/Script.cshtml
+            Method will search for a theme specific view at /Views/Partials/Forms/Themes/[themealias]/Script.cshtml
+            </summary>
+            <returns>Path to the view</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormThemeResolver.GetDatePicker(System.String)">
+            <summary>
+            Retrieve the view to render the form date picker code, Default is /Vews/Partials/Forms/Themes/default/DatePicker.cshtml
+            Method will search for a theme specific view at /Views/Partials/Forms/Themes/[themealias]/DatePicker.cshtml
+            </summary>
+            <returns>Path to the view</returns>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Services.FormThemeResolver.GetFieldView(Umbraco.Forms.Web.Models.FormViewModel,Umbraco.Forms.Web.Models.FieldViewModel)">
+            <summary>
+            Retrieve the view to render a specific fieldtype, Default is /Vews/Partials/Forms/Themes/default/Fieldtypes/FieldType.[FieldTypeAlias].cshtml
+            Method will search for a theme specific view at /Views/Partials/Forms/Themes/[themealias]/Fieldtypes/FieldType.[FieldTypeAlias].cshtml
+            </summary>
+            <returns>Path to the view</returns>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Trees.DataSourceTreeController">
+            <summary>
+            A back-office tree controller for managing datasources.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.DataSourceTreeController.#ctor(Umbraco.Cms.Core.Services.ILocalizedTextService,Umbraco.Cms.Core.UmbracoApiControllerTypeCollection,Umbraco.Cms.Core.Events.IEventAggregator,Umbraco.Cms.Core.Trees.IMenuItemCollectionFactory,Umbraco.Forms.Core.Services.IDataSourceService,Umbraco.Forms.Core.Security.IFormsSecurity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Trees.DataSourceTreeController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.DataSourceTreeController.GetMenuForNode(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.DataSourceTreeController.GetTreeNodes(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.DataSourceTreeController.CreateRootNode(Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Trees.EmailTemplateTreeController">
+            <summary>
+            A back-office tree controller for managing email templates.
+            </summary>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Trees.EmailTemplateTreeController.FileSystem">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Trees.EmailTemplateTreeController.Extensions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Umbraco.Forms.Web.Trees.EmailTemplateTreeController.FileIcon">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Trees.FormSecurityTreeController">
+            <summary>
+            A back-office tree controller for managing form security.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormSecurityTreeController.#ctor(Umbraco.Cms.Core.Services.ILocalizedTextService,Umbraco.Cms.Core.UmbracoApiControllerTypeCollection,Umbraco.Cms.Core.Events.IEventAggregator,Umbraco.Cms.Core.Trees.IMenuItemCollectionFactory,Umbraco.Cms.Core.Services.IUserService,Microsoft.Extensions.Options.IOptions{Umbraco.Cms.Core.Configuration.Models.SecuritySettings},Umbraco.Forms.Data.Storage.IUserSecurityStorage,Microsoft.Extensions.Options.IOptions{Umbraco.Forms.Core.Configuration.SecuritySettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Trees.FormSecurityTreeController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormSecurityTreeController.GetTreeNodes(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormSecurityTreeController.GetMenuForNode(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Trees.FormTreeController">
+            <summary>
+            A back-office tree controller for managing forms.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormTreeController.#ctor(Umbraco.Cms.Core.Services.ILocalizedTextService,Umbraco.Cms.Core.UmbracoApiControllerTypeCollection,Umbraco.Cms.Core.Events.IEventAggregator,Umbraco.Cms.Core.Trees.IMenuItemCollectionFactory,Umbraco.Forms.Core.Security.IFormsSecurity,Umbraco.Forms.Core.Services.IFolderService,Umbraco.Forms.Core.Services.IFormService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Trees.FormTreeController"/> class.
+            </summary>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Trees.FormTreeController.FormTreeAccess">
+            <summary>
+            An enum used to simplify tracking access to form features available from the tree for the current user.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormTreeController.GetMenuForNode(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <summary>
+            Gets menu items for a given node in the Form tree such as Copy, Delete etc...
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Trees.FormTreeController.GetTreeNodes(System.String,Microsoft.AspNetCore.Http.FormCollection)" -->
+        <!-- Badly formed XML comment ignored for member "M:Umbraco.Forms.Web.Trees.FormTreeController.GetFoldersAndForms(Microsoft.AspNetCore.Http.FormCollection,Umbraco.Forms.Web.Trees.FormTreeController.FormTreeAccess,System.String)" -->
+        <member name="M:Umbraco.Forms.Web.Trees.FormTreeController.GetFormChildren(System.Guid,Microsoft.AspNetCore.Http.FormCollection,Umbraco.Forms.Web.Trees.FormTreeController.FormTreeAccess)">
+            <summary>
+            This gets the child nodes of a form node (the single node for entries).
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormTreeController.CreateRootNode(Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.FormTreeController.SearchAsync(System.String,System.Int32,System.Int64,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Web.Trees.PreValueSourceTreeController">
+            <summary>
+            A back-office tree controller for managing prevalue sources.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.PreValueSourceTreeController.#ctor(Umbraco.Cms.Core.Services.ILocalizedTextService,Umbraco.Cms.Core.UmbracoApiControllerTypeCollection,Umbraco.Cms.Core.Events.IEventAggregator,Umbraco.Cms.Core.Trees.IMenuItemCollectionFactory,Umbraco.Forms.Core.Services.IPrevalueSourceService,Umbraco.Forms.Core.Security.IFormsSecurity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Umbraco.Forms.Web.Trees.PreValueSourceTreeController"/> class.
+            </summary>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.PreValueSourceTreeController.GetMenuForNode(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.PreValueSourceTreeController.GetTreeNodes(System.String,Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Umbraco.Forms.Web.Trees.PreValueSourceTreeController.CreateRootNode(Microsoft.AspNetCore.Http.FormCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Umbraco.Forms.Examine.Extensions.UmbracoBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:Umbraco.Cms.Core.DependencyInjection.IUmbracoBuilder"/> for the common Umbraco functionality
+            </summary>
+        </member>
+    </members>
+</doc>

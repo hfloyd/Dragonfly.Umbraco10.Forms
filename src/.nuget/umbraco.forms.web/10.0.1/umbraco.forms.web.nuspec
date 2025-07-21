@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Umbraco.Forms.Web</id>
+    <version>10.0.1</version>
+    <authors>Umbraco HQ</authors>
+    <projectUrl>https://umbraco.com/</projectUrl>
+    <iconUrl>https://umbraco.com/dist/nuget/logo-small.png</iconUrl>
+    <description>Umbraco Forms is an extension for Umbraco CMS allowing editors to create and manage forms and review submissions. The packages available from this feed can be used with Umbraco CMS version 9+. For Umbraco CMS version 8 or lower, please use the feed available at https://www.nuget.org/packages/UmbracoForms/</description>
+    <copyright>Copyright © Umbraco 2022</copyright>
+    <tags>umbraco forms</tags>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Umbraco.Forms.Core" version="10.0.1" exclude="Build,Analyzers" />
+        <dependency id="Umbraco.Cms.Web.BackOffice" version="[10.0.0, 11.0.0)" exclude="Build,Analyzers" />
+        <dependency id="Umbraco.Cms.Web.Website" version="[10.0.0, 11.0.0)" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
